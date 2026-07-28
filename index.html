@@ -3856,6 +3856,228 @@ button.doc-link-v106:hover,
   font-size:9px!important;
 }
 
+
+/* v114 - cadastro visível pela aquisição e foto estável */
+.foto-estavel-v114{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  background:#fff;
+}
+.v114-status{
+  background:#eefaf5;
+  color:#075d32;
+  padding:9px 11px;
+  border-radius:12px;
+  font-weight:900;
+  font-size:12px;
+  margin-top:8px;
+}
+
+
+/* v115 - depreciação por item integrada na mesma tabela/lista */
+#fechDepItemV110,
+#notaDepItemV110{
+  display:none!important;
+}
+.close-row.v115-cat-row{
+  padding-left:24px!important;
+  background:#fbfefe;
+  font-size:13px!important;
+}
+.close-row.v115-cat-row span{
+  color:#34576b;
+}
+.close-row.v115-cat-row strong{
+  color:#c65300;
+}
+.close-row.v115-cat-row .cat-label{
+  font-weight:900;
+  color:#073b5b;
+}
+.close-row.v115-cat-row .cat-valor{
+  font-size:12px;
+  color:#526779;
+  margin-left:8px;
+  font-weight:800;
+}
+.close-row.v115-cat-head{
+  background:#eef8fb;
+  border-radius:10px;
+  margin-top:4px;
+  font-size:12px!important;
+  text-transform:uppercase;
+  font-weight:900;
+  color:#073b5b;
+}
+.relatorio-patrimonial-v74 .rp-row.v115-cat-row{
+  padding-left:22px;
+  font-size:12px;
+  background:#fbfefe;
+}
+.relatorio-patrimonial-v74 .rp-row.v115-cat-row span{
+  color:#34576b;
+}
+.relatorio-patrimonial-v74 .rp-row.v115-cat-head{
+  background:#eef8fb;
+  border-radius:10px;
+  margin-top:4px;
+  font-size:12px;
+  text-transform:uppercase;
+  font-weight:900;
+}
+.relatorio-patrimonial-v74 .rp-row.v115-cat-row .cat-label{
+  font-weight:900;
+  color:#073b5b;
+}
+.relatorio-patrimonial-v74 .rp-row.v115-cat-row .cat-valor{
+  display:inline-block;
+  margin-left:8px;
+  color:#526779;
+  font-weight:800;
+}
+@media print{
+  #fechDepItemV110,
+  #notaDepItemV110{
+    display:none!important;
+  }
+}
+
+
+/* v116 - Relatório Depreciação por Grupo */
+.dep-grupo-v116 .rp-table-title{
+  margin-top:18px;
+}
+.dep-grupo-v116 table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:12px;
+}
+.dep-grupo-v116 th{
+  background:#eaf7f5;
+  color:#0b3a55;
+  text-transform:uppercase;
+  font-size:11px;
+  letter-spacing:.01em;
+}
+.dep-grupo-v116 td,
+.dep-grupo-v116 th{
+  padding:9px 8px;
+  border-bottom:1px solid #dfecef;
+  text-align:left;
+}
+.dep-grupo-v116 td.num,
+.dep-grupo-v116 th.num{
+  text-align:right;
+  white-space:nowrap;
+}
+.dep-grupo-v116 tr.total{
+  background:#e8f8ee;
+  font-weight:900;
+}
+.dep-grupo-v116 .rp-note{
+  background:#eef8fb;
+  border:1px solid #d8ebef;
+  border-radius:12px;
+  padding:11px 12px;
+  margin:12px 0;
+  color:#36556e;
+  font-weight:750;
+}
+.dep-grupo-v116 .rp-cards{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(130px,1fr));
+  gap:12px;
+  margin:16px 0;
+}
+.dep-grupo-v116 .rp-card{
+  border:1px solid var(--linha);
+  background:#f8fcfc;
+  border-radius:14px;
+  padding:12px;
+}
+.dep-grupo-v116 .rp-card span{
+  display:block;
+  color:var(--muted);
+  text-transform:uppercase;
+  font-size:10.5px;
+  font-weight:900;
+  margin-bottom:7px;
+}
+.dep-grupo-v116 .rp-card strong{
+  font-size:16px;
+  color:var(--texto);
+}
+@media print{
+  .dep-grupo-v116 table{font-size:10.5px}
+  .dep-grupo-v116 td,.dep-grupo-v116 th{padding:6px}
+}
+
+
+/* v117 - foto principal estável e relatório por grupo corrigido */
+.item-img.v117-foto-wrap,
+.thumb.v117-thumb-wrap{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+  background:#dff6f1;
+}
+.item-img.v117-foto-wrap img,
+.thumb.v117-thumb-wrap img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+.item-img.v117-foto-wrap.sem-foto,
+.thumb.v117-thumb-wrap.sem-foto{
+  background:#eaf8f5;
+  color:#7d9aa5;
+  font-weight:900;
+}
+.item-img.v117-foto-wrap.erro-foto,
+.thumb.v117-thumb-wrap.erro-foto{
+  background:#fff;
+}
+.v117-foto-loading{
+  color:#7d9aa5;
+  font-size:11px;
+  font-weight:900;
+}
+.dep-grupo-v117 table{
+  width:100%;
+  border-collapse:collapse;
+}
+.dep-grupo-v117 th,
+.dep-grupo-v117 td{
+  padding:9px 8px;
+  border-bottom:1px solid #dfecef;
+}
+.dep-grupo-v117 th{
+  background:#eaf7f5;
+  color:#0b3a55;
+  text-transform:uppercase;
+  font-size:11px;
+}
+.dep-grupo-v117 .num{
+  text-align:right;
+  white-space:nowrap;
+}
+.dep-grupo-v117 tr.total{
+  background:#e8f8ee;
+  font-weight:900;
+}
+.dep-grupo-v117 .rp-note{
+  background:#eef8fb;
+  border:1px solid #d8ebef;
+  border-radius:12px;
+  padding:11px 12px;
+  margin:12px 0;
+  color:#36556e;
+  font-weight:750;
+}
+
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
@@ -22353,6 +22575,1482 @@ function depAcumuladaTotalAteMesAnterior(){
   });
 
   setTimeout(()=>window.renderTabela(), 500);
+})();
+
+</script>
+
+<script>
+
+(function(){
+  // v114
+  // Correções principais:
+  // 1) O bem aparece desde a DATA DE AQUISIÇÃO/NF, mesmo que a depreciação comece depois.
+  // 2) Depreciação continua começando somente na data de início da depreciação.
+  // 3) Salvamento por lote não duplica lote já cadastrado: atualiza/reaproveita bens existentes da mesma NF/data/valor.
+  // 4) NF/NE/OF são propagadas para todos os bens do mesmo lote, quando um deles já tem o documento.
+  // 5) Editar preserva fornecedor/CNPJ/categoria/NE em todos.
+  // 6) Foto do bem fica mais estável, com cache de URL assinada.
+
+  window.__signedCacheV114 = window.__signedCacheV114 || {};
+
+  function esc114(v){
+    return String(v ?? "").replace(/[&<>"']/g, s=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[s]));
+  }
+
+  function parseBR114(v){
+    try { return parseNumeroBR(v); }
+    catch(e){ return Number(String(v||"").replace(/[R$\s]/g,"").replace(/\./g,"").replace(",", ".")) || 0; }
+  }
+
+  function normTxt114(v){
+    return String(v || "")
+      .normalize("NFD").replace(/[\u0300-\u036f]/g,"")
+      .toUpperCase()
+      .replace(/\s+/g," ")
+      .trim();
+  }
+
+  function normNF114(v){
+    return String(v || "").replace(/\D/g,"").replace(/^0+/, "") || String(v || "").trim();
+  }
+
+  function dataISO114(v){
+    if(!v || v === "-") return "";
+    const s = String(v).trim();
+    if(/^\d{4}-\d{2}-\d{2}/.test(s)) return s.slice(0,10);
+    const m = s.match(/^(\d{1,2})[\/\-](\d{1,2})[\/\-](\d{4})$/);
+    if(m) return `${m[3]}-${String(m[2]).padStart(2,"0")}-${String(m[1]).padStart(2,"0")}`;
+    return "";
+  }
+
+  function refMes114(v){
+    const iso = dataISO114(v);
+    if(!iso) return null;
+    const [a,m,d] = iso.split("-").map(Number);
+    return {ano:a, mes:m-1, dia:d, iso};
+  }
+
+  function compIdx114(ano, mes){
+    return Number(ano) * 12 + Number(mes);
+  }
+
+  function dataAquisicaoBem114(b){
+    return dataISO114(b?.aquisicao) || dataISO114(b?.inicio) || "";
+  }
+
+  function dataInicioDep114(b){
+    return dataISO114(b?.inicio) || dataISO114(b?.aquisicao) || "";
+  }
+
+  function bemExisteNaCompetencia114(b, mes=mesSelecionado, ano=anoSelecionado){
+    const ref = refMes114(dataAquisicaoBem114(b));
+    if(!ref) return true;
+    return compIdx114(ano, mes) >= compIdx114(ref.ano, ref.mes);
+  }
+
+  function bemEntradaNoMesAquisicao114(b, mes=mesSelecionado, ano=anoSelecionado){
+    const ref = refMes114(dataAquisicaoBem114(b));
+    if(!ref) return false;
+    return compIdx114(ano, mes) === compIdx114(ref.ano, ref.mes);
+  }
+
+  function bemDepreciaNaCompetencia114(b, mes=mesSelecionado, ano=anoSelecionado){
+    if(!b || b.situacao === "Baixado") return false;
+    if(b.depreciavel === false || b.categoriaSecundaria === "Obras de arte") return false;
+    const ref = refMes114(dataInicioDep114(b));
+    if(!ref) return false;
+    return compIdx114(ano, mes) >= compIdx114(ref.ano, ref.mes);
+  }
+
+  window.bensDaCompetencia = function(mes=mesSelecionado, ano=anoSelecionado){
+    return deduplicarBens(bens || []).filter(b=>bemExisteNaCompetencia114(b, mes, ano));
+  };
+
+  window.bensDoRelatorio = function(mes=mesSelecionado, ano=anoSelecionado){
+    return deduplicarBens(bens || []).filter(b=>bemExisteNaCompetencia114(b, mes, ano));
+  };
+
+  window.entradasMes = function(mes=mesSelecionado, ano=anoSelecionado){
+    return Math.round(deduplicarBens(bens || [])
+      .filter(b=>b.situacao !== "Baixado")
+      .filter(b=>bemEntradaNoMesAquisicao114(b, mes, ano))
+      .reduce((s,b)=>s + Number(b.valor || 0), 0) * 100) / 100;
+  };
+
+  window.saldoBensMoveis = function(mes=mesSelecionado, ano=anoSelecionado){
+    return Math.round(bensDaCompetencia(mes, ano)
+      .filter(b=>b.situacao !== "Baixado")
+      .reduce((s,b)=>s + Number(b.valor || 0), 0) * 100) / 100;
+  };
+
+  window.depMensal = function(b, mes=mesSelecionado, ano=anoSelecionado){
+    if(!bemDepreciaNaCompetencia114(b, mes, ano)) return 0;
+    return Math.round((valorDepreciavel(b) * taxaNumero(b.taxa) / 12) * 100) / 100;
+  };
+
+  function mesesDepAntes114(b, mes=mesSelecionado, ano=anoSelecionado){
+    const ref = refMes114(dataInicioDep114(b));
+    if(!ref) return 0;
+    return Math.max(0, compIdx114(ano, mes) - compIdx114(ref.ano, ref.mes));
+  }
+
+  function mesesDepAno114(b, mes=mesSelecionado, ano=anoSelecionado){
+    const ref = refMes114(dataInicioDep114(b));
+    if(!ref || !bemDepreciaNaCompetencia114(b, mes, ano)) return 0;
+    const ini = Math.max(compIdx114(ref.ano, ref.mes), compIdx114(ano, 0));
+    return Math.max(0, compIdx114(ano, mes) - ini + 1);
+  }
+
+  window.depAcumuladaBemAnterior = function(b, mes=mesSelecionado, ano=anoSelecionado){
+    const mensal = Math.round((valorDepreciavel(b) * taxaNumero(b.taxa) / 12) * 100) / 100;
+    return Math.round((Number(b.depAcum || 0) + mensal * mesesDepAntes114(b, mes, ano)) * 100) / 100;
+  };
+
+  window.depAnoAteMes = function(b, mes=mesSelecionado, ano=anoSelecionado){
+    return Math.round(depMensal(b, mes, ano) * mesesDepAno114(b, mes, ano) * 100) / 100;
+  };
+
+  window.depMesTotal = function(mes=mesSelecionado, ano=anoSelecionado){
+    return Math.round(bensDaCompetencia(mes, ano).reduce((s,b)=>s + depMensal(b, mes, ano), 0) * 100) / 100;
+  };
+
+  window.depAcumuladaAnterior = function(mes=mesSelecionado, ano=anoSelecionado){
+    return Math.round(bensDaCompetencia(mes, ano).reduce((s,b)=>s + depAcumuladaBemAnterior(b, mes, ano), 0) * 100) / 100;
+  };
+
+  window.saldoImobilizado = function(mes=mesSelecionado, ano=anoSelecionado){
+    return Math.max(0, Math.round((saldoBensMoveis(mes, ano) - depAcumuladaAnterior(mes, ano) - depMesTotal(mes, ano)) * 100) / 100);
+  };
+
+  window.valorAtualizadoBem = function(b, mes=mesSelecionado, ano=anoSelecionado){
+    if(!bemExisteNaCompetencia114(b, mes, ano)) return 0;
+    const atual = Number(b.valor || 0) - depAcumuladaBemAnterior(b, mes, ano) - depMensal(b, mes, ano);
+    return Math.max(Number(b.residual || 0), Math.round(atual * 100) / 100);
+  };
+  window.valorAtualizadoDep = window.valorAtualizadoBem;
+
+  window.renderMovimentacoes = function(){
+    const manuais = movimentacoesPatrimoniais.filter(m=>Number(m.mes) === Number(mesSelecionado) && Number((m.ano || anoSelecionado)) === Number(anoSelecionado));
+    const auto = deduplicarBens(bens || [])
+      .filter(b=>b.situacao !== "Baixado")
+      .filter(b=>bemEntradaNoMesAquisicao114(b, mesSelecionado, anoSelecionado))
+      .map(b=>({
+        automatico:true,
+        tipo:"Entrada",
+        bem_id:b.id || null,
+        bem_pat:b.pat,
+        bem_desc:b.desc,
+        valor:Number(b.valor || 0),
+        setor_origem:"Aquisição/Fornecedor",
+        setor_destino:b.setor || "-",
+        responsavel:b.responsavel || "-",
+        observacoes:`Entrada automática pela data de aquisição/NF (${dataISO114(b.aquisicao) || "-"})`
+      }));
+
+    const lista = [...auto, ...manuais];
+    const titulo = document.getElementById("movCompetenciaTitulo");
+    if(titulo) titulo.textContent = `${competenciaAtualTexto()}`;
+
+    const entradas = lista.filter(m=>m.tipo==="Entrada").reduce((s,m)=>s+Number(m.valor||0),0);
+    const baixas = lista.filter(m=>m.tipo==="Baixa").reduce((s,m)=>s+Number(m.valor||0),0);
+    const transf = lista.filter(m=>m.tipo==="Transferencia").length;
+    const ajustes = lista.filter(m=>m.tipo==="Ajuste").reduce((s,m)=>s+Number(m.valor||0),0);
+
+    const setTxt = (id,val)=>{ const el=document.getElementById(id); if(el) el.textContent=val; };
+    setTxt("movEntradas", moeda(entradas));
+    setTxt("movBaixas", moeda(baixas));
+    setTxt("movTransferencias", String(transf));
+    setTxt("movAjustes", moeda(ajustes));
+
+    const tbody = document.getElementById("movTable");
+    if(!tbody) return;
+    if(!lista.length){
+      tbody.innerHTML = `<tr><td colspan="7" class="empty">Nenhuma movimentação registrada nesta competência.</td></tr>`;
+      return;
+    }
+
+    tbody.innerHTML = lista.map(m=>{
+      const bem = m.bem_id ? (typeof bemPorId === "function" ? bemPorId(m.bem_id) : null) : null;
+      const bemTxt = bem ? `${bem.pat} • ${bem.desc}` : (m.bem_pat ? `${m.bem_pat} • ${m.bem_desc}` : "Sem vínculo");
+      const classe = String(m.tipo || "").replace("ê","e").replace("ç","c").replace("ã","a");
+      return `<tr>
+        <td><span class="type-pill ${classe}">${m.tipo}${m.automatico ? " automática" : ""}</span></td>
+        <td>${esc114(bemTxt)}</td>
+        <td>${moeda(Number(m.valor || 0))}</td>
+        <td>${esc114(m.setor_origem || "-")}</td>
+        <td>${esc114(m.setor_destino || "-")}</td>
+        <td>${esc114(m.responsavel || "-")}</td>
+        <td>${esc114(m.observacoes || "-")}</td>
+      </tr>`;
+    }).join("");
+  };
+
+  // EXT: fornecedor/CNPJ passam a ir para a base e voltar no editar.
+  window.salvarExtSupabaseV95 = async function(ext){
+    const key = normalizarPatV95(ext.numero_patrimonial);
+    if(!key) return;
+
+    bensExtCacheV95[key] = {
+      ...(bensExtCacheV95[key] || {}),
+      notaEmpenho: ext.notaEmpenho || "",
+      categoriaPrincipal: ext.categoriaPrincipal || "",
+      categoriaSecundaria: ext.categoriaSecundaria || "",
+      depreciavel: ext.depreciavel !== false,
+      fornecedor: ext.fornecedor || "",
+      cnpj: ext.cnpj || ""
+    };
+    salvarExtLocalV95();
+
+    try{
+      const { data: { session } } = await supabaseClient.auth.getSession();
+      if(!session?.user) return;
+
+      const payload = {
+        numero_patrimonial: key,
+        nota_empenho: ext.notaEmpenho || null,
+        categoria_principal: ext.categoriaPrincipal || null,
+        categoria_secundaria: ext.categoriaSecundaria || null,
+        depreciavel: ext.depreciavel !== false,
+        fornecedor: ext.fornecedor || null,
+        cnpj: ext.cnpj || null,
+        atualizado_em: new Date().toISOString()
+      };
+
+      const { error } = await supabaseClient
+        .from("bens_patrimoniais_ext")
+        .upsert(payload, { onConflict:"numero_patrimonial" });
+      if(error) throw error;
+    }catch(e){
+      console.warn("Dados contábeis/fornecedor salvos localmente, mas não foram ao Supabase:", e);
+    }
+  };
+
+  window.carregarExtSupabaseV95 = async function(){
+    try{
+      const { data: { session } } = await supabaseClient.auth.getSession();
+      if(!session?.user) return false;
+
+      const { data, error } = await supabaseClient
+        .from("bens_patrimoniais_ext")
+        .select("*");
+      if(error) throw error;
+
+      const novo = extLocalV95();
+      (data || []).forEach(r=>{
+        const key = normalizarPatV95(r.numero_patrimonial);
+        novo[key] = {
+          ...(novo[key] || {}),
+          notaEmpenho: r.nota_empenho || "",
+          categoriaPrincipal: r.categoria_principal || "",
+          categoriaSecundaria: r.categoria_secundaria || "",
+          depreciavel: r.depreciavel !== false,
+          fornecedor: r.fornecedor || "",
+          cnpj: r.cnpj || ""
+        };
+      });
+
+      bensExtCacheV95 = novo;
+      salvarExtLocalV95();
+      aplicarExtTodosV95();
+      return true;
+    }catch(e){
+      console.warn("Não carregou extensão contábil dos bens:", e);
+      bensExtCacheV95 = extLocalV95();
+      aplicarExtTodosV95();
+      return false;
+    }
+  };
+
+  const aplicarExtAnterior114 = window.aplicarExtNoBemV95 || aplicarExtNoBemV95;
+  window.aplicarExtNoBemV95 = function(b){
+    if(typeof aplicarExtAnterior114 === "function") aplicarExtAnterior114(b);
+    const ext = extBemV95(b.pat);
+    b.fornecedor = b.fornecedor || ext.fornecedor || "";
+    b.cnpj = b.cnpj || ext.cnpj || "";
+    return b;
+  };
+  try{ aplicarExtNoBemV95 = window.aplicarExtNoBemV95; }catch(e){}
+
+  function anexosBem114(b, tipo=null){
+    const arr = Array.isArray(b?.anexos) ? b.anexos : [];
+    return tipo ? arr.filter(a=>a.tipo_anexo === tipo) : arr;
+  }
+
+  function primeiroAnexo114(b, tipo){
+    return anexosBem114(b, tipo)[0] || null;
+  }
+
+  function cacheKey114(a){
+    return `${a?.bucket || ""}/${a?.caminho_arquivo || ""}`;
+  }
+
+  async function signedUrlEstavel114(a){
+    if(!a) return "";
+    const key = cacheKey114(a);
+    if(key && window.__signedCacheV114[key]) return window.__signedCacheV114[key];
+    if(a.signedUrlV109 || a.signedUrlV108 || a.signedUrlV107){
+      return a.signedUrlV109 || a.signedUrlV108 || a.signedUrlV107;
+    }
+
+    const tentativas = [];
+    if(a.bucket && a.caminho_arquivo) tentativas.push([a.bucket, a.caminho_arquivo]);
+    if(a.caminho_arquivo){
+      ["documentos-siafe","fotos-bens","etiquetas-patrimoniais","notas-fiscais","termos-responsabilidade"].forEach(b=>{
+        if(!tentativas.some(x=>x[0]===b && x[1]===a.caminho_arquivo)) tentativas.push([b,a.caminho_arquivo]);
+      });
+    }
+
+    for(const [bucket,path] of tentativas){
+      try{
+        const { data, error } = await supabaseClient.storage.from(bucket).createSignedUrl(path, 60*60);
+        if(!error && data?.signedUrl){
+          if(key) window.__signedCacheV114[key] = data.signedUrl;
+          a.signedUrlV114 = data.signedUrl;
+          return data.signedUrl;
+        }
+      }catch(e){}
+    }
+    return "";
+  }
+
+  async function carregarAnexosEstaveis114(){
+    try{
+      const ids = (bens || []).map(b=>b.id).filter(Boolean);
+      if(!ids.length) return;
+
+      const { data, error } = await supabaseClient.from("anexos_bens").select("*").in("bem_id", ids);
+      if(error) throw error;
+
+      const porBem = new Map();
+      (data || []).forEach(a=>{
+        if(!porBem.has(a.bem_id)) porBem.set(a.bem_id, []);
+        porBem.get(a.bem_id).push(a);
+      });
+
+      for(const b of (bens || [])){
+        b.anexos = porBem.get(b.id) || b.anexos || [];
+        b.temArquivoNF = b.anexos.some(a=>a.tipo_anexo === "nota_fiscal");
+        b.temNotaEmpenhoAnexada = b.anexos.some(a=>a.tipo_anexo === "nota_empenho");
+        b.temOrdemFornecimento = b.anexos.some(a=>a.tipo_anexo === "ordem_fornecimento");
+        b.temFotoPrincipal = b.anexos.some(a=>a.tipo_anexo === "foto_principal");
+
+        const foto = primeiroAnexo114(b, "foto_principal");
+        if(foto){
+          const u = await signedUrlEstavel114(foto);
+          if(u) b.foto = u;
+        }
+      }
+
+      await propagarDocumentosPorLote114();
+    }catch(e){
+      console.warn("Não carregou anexos estáveis v114:", e);
+    }
+  }
+
+  async function copiarAnexoRegistro114(origem, bemDestinoId){
+    if(!origem || !bemDestinoId) return;
+    try{
+      const { data: existe } = await supabaseClient
+        .from("anexos_bens")
+        .select("id")
+        .eq("bem_id", bemDestinoId)
+        .eq("tipo_anexo", origem.tipo_anexo)
+        .eq("caminho_arquivo", origem.caminho_arquivo)
+        .maybeSingle();
+      if(existe?.id) return;
+
+      await supabaseClient.from("anexos_bens").insert({
+        bem_id: bemDestinoId,
+        tipo_anexo: origem.tipo_anexo,
+        nome_arquivo: origem.nome_arquivo,
+        bucket: origem.bucket,
+        caminho_arquivo: origem.caminho_arquivo,
+        mime_type: origem.mime_type || null,
+        tamanho_bytes: origem.tamanho_bytes || null
+      });
+    }catch(e){
+      console.warn("Não propagou anexo do lote:", e);
+    }
+  }
+
+  async function propagarDocumentosPorLote114(){
+    try{
+      const grupos = new Map();
+      (bens || []).forEach(b=>{
+        const nf = normNF114(b.nf);
+        if(!nf) return;
+        const key = nf + "|" + (b.notaEmpenho || "");
+        if(!grupos.has(key)) grupos.set(key, []);
+        grupos.get(key).push(b);
+      });
+
+      let mudou = false;
+      for(const lista of grupos.values()){
+        if(lista.length < 2) continue;
+        for(const tipo of ["nota_fiscal","nota_empenho","ordem_fornecimento"]){
+          const origemBem = lista.find(b=>primeiroAnexo114(b, tipo));
+          const origem = origemBem ? primeiroAnexo114(origemBem, tipo) : null;
+          if(!origem) continue;
+
+          for(const b of lista){
+            if(!b.id) continue;
+            if(!primeiroAnexo114(b, tipo)){
+              await copiarAnexoRegistro114(origem, b.id);
+              mudou = true;
+            }
+          }
+        }
+
+        // Propaga fornecedor/cnpj/categorias entre bens do mesmo lote, se algum tiver.
+        const base = lista.find(b=>b.fornecedor || b.cnpj || b.categoriaPrincipal || b.categoriaSecundaria || b.notaEmpenho);
+        if(base){
+          for(const b of lista){
+            const precisa = (!b.fornecedor && base.fornecedor) || (!b.cnpj && base.cnpj) || (!b.categoriaPrincipal && base.categoriaPrincipal) || (!b.categoriaSecundaria && base.categoriaSecundaria) || (!b.notaEmpenho && base.notaEmpenho);
+            if(precisa && b.pat){
+              await salvarExtSupabaseV95({
+                numero_patrimonial: b.pat,
+                notaEmpenho: b.notaEmpenho || base.notaEmpenho || "",
+                categoriaPrincipal: b.categoriaPrincipal || base.categoriaPrincipal || "",
+                categoriaSecundaria: b.categoriaSecundaria || base.categoriaSecundaria || "",
+                depreciavel: b.depreciavel !== false,
+                fornecedor: b.fornecedor || base.fornecedor || "",
+                cnpj: b.cnpj || base.cnpj || ""
+              });
+              mudou = true;
+            }
+          }
+        }
+      }
+
+      if(mudou){
+        const ids = (bens || []).map(b=>b.id).filter(Boolean);
+        if(ids.length){
+          const { data } = await supabaseClient.from("anexos_bens").select("*").in("bem_id", ids);
+          const porBem = new Map();
+          (data || []).forEach(a=>{
+            if(!porBem.has(a.bem_id)) porBem.set(a.bem_id, []);
+            porBem.get(a.bem_id).push(a);
+          });
+          (bens || []).forEach(b=>b.anexos = porBem.get(b.id) || []);
+        }
+      }
+    }catch(e){
+      console.warn("Não propagou documentos por lote:", e);
+    }
+  }
+
+  const carregarBensAnterior114 = window.carregarBensSupabase;
+  window.carregarBensSupabase = async function(){
+    const ok = await carregarBensAnterior114();
+    try{ await carregarExtSupabaseV95(); }catch(e){}
+    await carregarAnexosEstaveis114();
+    return ok;
+  };
+
+  const syncAnterior114 = window.sincronizarDoSupabase;
+  window.sincronizarDoSupabase = async function(preservarLocal=false){
+    if(typeof syncAnterior114 === "function") await syncAnterior114(preservarLocal);
+    try{ await carregarExtSupabaseV95(); }catch(e){}
+    await carregarAnexosEstaveis114();
+  };
+
+  async function arquivoBase64V114(id){
+    const f = document.getElementById(id)?.files?.[0];
+    if(!f) return null;
+    return await new Promise((resolve,reject)=>{
+      const r = new FileReader();
+      r.onload = ()=>resolve({nome:f.name,tipo:f.type,tamanho:f.size,dados:r.result,tamanho:f.size});
+      r.onerror = reject;
+      r.readAsDataURL(f);
+    });
+  }
+
+  async function buscarExistentesMesmoLote114(nf, dataAquisicao){
+    const nfNorm = normNF114(nf);
+    const locais = deduplicarBens(bens || []).filter(b=>normNF114(b.nf) === nfNorm && dataISO114(b.aquisicao) === dataAquisicao);
+
+    try{
+      const { data, error } = await supabaseClient
+        .from("bens_patrimoniais")
+        .select("*")
+        .eq("nota_fiscal", nf)
+        .eq("data_aquisicao", dataAquisicao);
+      if(!error && data){
+        const mapeados = data.map(mapearBemSupabase);
+        return deduplicarBens([...locais, ...mapeados]);
+      }
+    }catch(e){}
+    return locais;
+  }
+
+  function chaveConteudoBem114(desc, valor){
+    return `${normTxt114(desc).slice(0,120)}|${Math.round(Number(valor || 0) * 100)}`;
+  }
+
+  window.salvarLotePatrimonialV100 = async function(){
+    try{
+      if(typeof confirmarPermissaoTotal === "function") await confirmarPermissaoTotal();
+
+      const nf = document.getElementById("nfNumeroV100")?.value?.trim() || "";
+      const dataAquisicao = document.getElementById("nfDataV100")?.value || "";
+      const inicioDep = document.getElementById("inicioDepV104")?.value || dataAquisicao;
+      const ne = document.getElementById("neNumeroV100")?.value?.trim() || "";
+      const cp = document.getElementById("catPrincV100")?.value || "";
+      const cs = document.getElementById("catSecV100")?.value || "";
+      const fornecedor = document.getElementById("fornecedorV100")?.value?.trim() || "";
+      const cnpj = document.getElementById("cnpjV100")?.value?.trim() || "";
+      const rows = [...document.querySelectorAll("#bensBodyV100 tr")].filter(r=>r.querySelector(".bemPat"));
+
+      if(!nf){ alert("Informe ou leia a Nota Fiscal."); return; }
+      if(!dataAquisicao){ alert("Informe a data de emissão/aquisição da NF."); return; }
+      if(!inicioDep){ alert("Informe a data de início da depreciação."); return; }
+      if(!cp || !cs){ alert("Informe a classificação contábil."); return; }
+      if(!rows.length){ alert("Nenhum bem gerado."); return; }
+
+      const pats = rows.map(r=>r.querySelector(".bemPat")?.value?.trim()).filter(Boolean);
+      if(pats.length !== rows.length){ alert("Todos os bens precisam de número patrimonial."); return; }
+      const reps = pats.filter((p,i)=>pats.indexOf(p)!==i);
+      if(reps.length){ alert("Há números patrimoniais repetidos no lote: " + [...new Set(reps)].join(", ")); return; }
+
+      const nfDoc = await arquivoBase64V114("arqNFV100");
+      const neDoc = await arquivoBase64V114("arqNEV100");
+      const ofDoc = await arquivoBase64V114("arqOFV100");
+
+      const existentes = await buscarExistentesMesmoLote114(nf, dataAquisicao);
+      const porChave = new Map();
+      existentes.forEach(b=>{
+        const key = chaveConteudoBem114(b.desc, b.valor);
+        if(!porChave.has(key)) porChave.set(key, []);
+        porChave.get(key).push(b);
+      });
+      porChave.forEach(lista=>lista.sort((a,b)=>String(a.pat).localeCompare(String(b.pat), "pt-BR", {numeric:true})));
+
+      const usados = new Set();
+
+      const btn = document.getElementById("btnSalvarLoteV100");
+      if(btn){ btn.disabled = true; btn.textContent = "Salvando lote..."; }
+
+      let criados = 0, atualizados = 0;
+
+      for(const row of rows){
+        const patDigitado = row.querySelector(".bemPat")?.value?.trim();
+        const valor = parseBR114(row.querySelector(".bemValor")?.value || "0");
+        const desc = row.querySelector(".bemDesc")?.value?.trim() || "";
+        const setor = row.querySelector(".bemSetor")?.value?.trim() || "";
+        const responsavel = row.querySelector(".bemResp")?.value?.trim() || "";
+        const situacao = row.querySelector(".bemSit")?.value || "Em uso";
+        const obras = cs === "Obras de arte";
+
+        const key = chaveConteudoBem114(desc, valor);
+        const candidatos = porChave.get(key) || [];
+        let existente = candidatos.find(b=>!usados.has(String(b.pat)));
+        const mesmoPat = existentes.find(b=>normalizarTombo(b.pat) === normalizarTombo(patDigitado));
+        if(mesmoPat && !usados.has(String(mesmoPat.pat))) existente = mesmoPat;
+
+        const patFinal = existente?.pat || patDigitado;
+        if(existente) usados.add(String(existente.pat));
+
+        const item = {
+          id: existente?.id || null,
+          pat: patFinal,
+          desc,
+          setor: setor || existente?.setor || "",
+          responsavel: responsavel || existente?.responsavel || "",
+          nf,
+          notaEmpenho: ne || existente?.notaEmpenho || "",
+          aquisicao: dataAquisicao,
+          inicio: inicioDep,
+          valor,
+          residual: obras ? 0 : Math.round(valor * 10) / 100,
+          taxa: obras ? "0%" : "10%",
+          depAcum: existente ? Number(existente.depAcum || 0) : 0,
+          valorAtual: valor,
+          situacao,
+          categoriaPrincipal: cp,
+          categoriaSecundaria: cs,
+          depreciavel: !obras,
+          fornecedor,
+          cnpj,
+          foto: existente?.foto || null,
+          fotoEtiqueta: existente?.fotoEtiqueta || null,
+          arquivoNF: existente?.arquivoNF || null,
+          termoAssinado: existente?.termoAssinado || null
+        };
+
+        const salvo = await salvarBemSupabase(item);
+        item.id = salvo.id;
+
+        await salvarExtSupabaseV95({
+          numero_patrimonial: item.pat,
+          notaEmpenho: item.notaEmpenho,
+          categoriaPrincipal: cp,
+          categoriaSecundaria: cs,
+          depreciavel: !obras,
+          fornecedor,
+          cnpj
+        });
+
+        if(nfDoc && typeof salvarAnexoBemSupabase === "function") await salvarAnexoBemSupabase(item.id, "nota_fiscal", "documentos-siafe", nfDoc);
+        if(neDoc && typeof salvarAnexoBemSupabase === "function") await salvarAnexoBemSupabase(item.id, "nota_empenho", "documentos-siafe", neDoc);
+        if(ofDoc && typeof salvarAnexoBemSupabase === "function") await salvarAnexoBemSupabase(item.id, "ordem_fornecimento", "documentos-siafe", ofDoc);
+
+        if(existente) atualizados++; else criados++;
+        if(btn) btn.textContent = `Salvando... ${criados + atualizados}/${rows.length}`;
+      }
+
+      await sincronizarDoSupabase(true);
+      await propagarDocumentosPorLote114();
+      await carregarAnexosEstaveis114();
+      renderTudo();
+
+      document.getElementById("modalCadastro")?.classList.add("hidden");
+      alert(`Lote salvo sem duplicar: ${criados} criado(s), ${atualizados} atualizado(s).`);
+      viewById("bens");
+    }catch(e){
+      console.error(e);
+      alert("Erro ao salvar lote: " + (e.message || e));
+    }finally{
+      const btn = document.getElementById("btnSalvarLoteV100");
+      if(btn){ btn.disabled = false; btn.textContent = "Salvar lote e gerar bens"; }
+    }
+  };
+
+  const abrirDetalheAnterior114 = window.abrirDetalhe;
+  window.abrirDetalhe = async function(pat){
+    const b = bens.find(x=>String(x.pat) === String(pat));
+    if(b){
+      const foto = primeiroAnexo114(b, "foto_principal");
+      if(foto){
+        const u = await signedUrlEstavel114(foto);
+        if(u) b.foto = u;
+      }
+    }
+    if(typeof abrirDetalheAnterior114 === "function"){
+      await abrirDetalheAnterior114(pat);
+      setTimeout(()=>{
+        const img = document.querySelector("#detalheConteudo .detail-photo img");
+        if(img && b?.foto){
+          img.classList.add("foto-estavel-v114");
+          img.src = b.foto;
+        }
+      }, 60);
+    }
+  };
+
+  const renderTudoAnterior114 = window.renderTudo;
+  window.renderTudo = function(){
+    if(typeof renderTudoAnterior114 === "function") renderTudoAnterior114();
+    try{ renderCards(); }catch(e){}
+    try{ renderMovimentacoes(); }catch(e){}
+  };
+  try{ renderTudo = window.renderTudo; }catch(e){}
+
+  setTimeout(async ()=>{
+    try{
+      await carregarExtSupabaseV95();
+      await carregarAnexosEstaveis114();
+      renderTudo();
+    }catch(e){}
+  }, 1200);
+})();
+
+</script>
+
+<script>
+
+(function(){
+  // v115
+  // O detalhamento por item de despesa agora entra na mesma tabela/lista do fechamento/relatório,
+  // logo abaixo de "Valor depreciado no mês (D)".
+  // Mostra: valor da categoria + redução da depreciação.
+
+  function esc115(v){
+    return String(v ?? "").replace(/[&<>"']/g, s=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[s]));
+  }
+
+  function itemDespesaV115(b){
+    return b?.categoriaSecundaria || b?.categoria_secundaria || b?.categoriaPrincipal || b?.categoria_principal || "Sem item de despesa";
+  }
+
+  function gruposDepreciacaoV115(mes=mesSelecionado, ano=anoSelecionado){
+    const mapa = new Map();
+    const base = typeof bensDaCompetencia === "function" ? bensDaCompetencia(mes, ano) : (bens || []);
+
+    base
+      .filter(b=>b && b.situacao !== "Baixado")
+      .forEach(b=>{
+        const item = itemDespesaV115(b);
+        if(!mapa.has(item)){
+          mapa.set(item, {item, qtd:0, valorCategoria:0, reducaoDepreciacao:0});
+        }
+
+        const g = mapa.get(item);
+        g.qtd += 1;
+        g.valorCategoria += Number(b.valor || 0);
+
+        const dep = typeof depMensal === "function" ? Number(depMensal(b, mes, ano) || 0) : 0;
+        g.reducaoDepreciacao += dep;
+      });
+
+    return Array.from(mapa.values())
+      .map(g=>({
+        ...g,
+        valorCategoria: Math.round(g.valorCategoria * 100) / 100,
+        reducaoDepreciacao: Math.round(g.reducaoDepreciacao * 100) / 100
+      }))
+      .sort((a,b)=>a.item.localeCompare(b.item, "pt-BR", {numeric:true}));
+  }
+
+  function moedaNegV115(valor){
+    const n = Number(valor || 0);
+    return n > 0 ? "-" + moeda(n) : moeda(0);
+  }
+
+  function htmlLinhasFechamentoV115(){
+    const grupos = gruposDepreciacaoV115();
+    if(!grupos.length) return "";
+
+    return `
+      <div id="fechDepInlineV115" class="v115-dep-inline">
+        <div class="close-row v115-cat-head">
+          <span>Detalhamento por item de despesa</span>
+          <strong>Redução da depreciação</strong>
+        </div>
+        ${grupos.map(g=>`
+          <div class="close-row v115-cat-row">
+            <span><span class="cat-label">${esc115(g.item)}</span><span class="cat-valor">Valor da categoria: ${moeda(g.valorCategoria)}</span></span>
+            <strong>${moedaNegV115(g.reducaoDepreciacao)}</strong>
+          </div>
+        `).join("")}
+      </div>`;
+  }
+
+  function removerCardsAntigosV115(){
+    document.getElementById("fechDepItemV110")?.remove();
+    document.getElementById("notaDepItemV110")?.remove();
+  }
+
+  function inserirDepInlineFechamentoV115(){
+    removerCardsAntigosV115();
+
+    const closing = document.querySelector("#fechamento .closing");
+    if(!closing) return;
+
+    document.getElementById("fechDepInlineV115")?.remove();
+
+    const depRow = document.getElementById("fechDepMes")?.closest(".close-row");
+    if(depRow){
+      depRow.insertAdjacentHTML("afterend", htmlLinhasFechamentoV115());
+    }
+  }
+
+  function htmlLinhasRelatorioV115(){
+    const grupos = gruposDepreciacaoV115();
+    if(!grupos.length) return "";
+
+    return `
+      <div class="rp-row v115-cat-head">
+        <span>Detalhamento por item de despesa</span>
+        <strong>Redução da depreciação</strong>
+      </div>
+      ${grupos.map(g=>`
+        <div class="rp-row v115-cat-row">
+          <span><span class="cat-label">${esc115(g.item)}</span><span class="cat-valor">Valor da categoria: ${moeda(g.valorCategoria)}</span></span>
+          <strong class="neg">${moedaNegV115(g.reducaoDepreciacao)}</strong>
+        </div>
+      `).join("")}`;
+  }
+
+  const montarRelatorioAnteriorV115 = window.montarRelatorioPatrimonial;
+  window.montarRelatorioPatrimonial = function(){
+    let h = typeof montarRelatorioAnteriorV115 === "function" ? montarRelatorioAnteriorV115() : "";
+    const extras = htmlLinhasRelatorioV115();
+
+    // Remove bloco separado antigo do relatório, se ele tiver sido injetado por versão anterior.
+    h = h.replace(/<div id="fechDepItemV110"[\s\S]*?<\/div>\s*<\/div>/g, "");
+    h = h.replace(/<div id="notaDepItemV110"[\s\S]*?<\/div>\s*<\/div>/g, "");
+
+    if(extras && !h.includes("v115-cat-head")){
+      // Insere logo depois da linha do Valor depreciado no mês (D), mantendo tudo dentro da mesma seção/tabela visual.
+      h = h.replace(
+        /(<div class="rp-row"><span>Valor depreciado no mês \(D\)<\/span><strong class="neg">[\s\S]*?<\/strong><\/div>)/,
+        `$1${extras}`
+      );
+    }
+    return h;
+  };
+
+  const renderCardsAnteriorV115 = window.renderCards;
+  window.renderCards = function(){
+    if(typeof renderCardsAnteriorV115 === "function") renderCardsAnteriorV115();
+    inserirDepInlineFechamentoV115();
+  };
+
+  const renderNotaAnteriorV115 = window.renderNotaPatrimonial;
+  window.renderNotaPatrimonial = function(){
+    if(typeof renderNotaAnteriorV115 === "function") renderNotaAnteriorV115();
+    removerCardsAntigosV115();
+  };
+
+  const renderTudoAnteriorV115 = window.renderTudo;
+  window.renderTudo = function(){
+    if(typeof renderTudoAnteriorV115 === "function") renderTudoAnteriorV115();
+    inserirDepInlineFechamentoV115();
+    removerCardsAntigosV115();
+  };
+
+  try{ renderCards = window.renderCards; }catch(e){}
+  try{ renderNotaPatrimonial = window.renderNotaPatrimonial; }catch(e){}
+  try{ renderTudo = window.renderTudo; }catch(e){}
+
+  setInterval(()=>{
+    inserirDepInlineFechamentoV115();
+    removerCardsAntigosV115();
+  }, 1500);
+})();
+
+</script>
+
+<script>
+
+(function(){
+  // v116 - novo relatório: Depreciação por Grupo.
+  // Colunas: Categoria/Item, Aquisição, Depreciação do Exercício, Depreciação Acumulada e Saldo.
+  // As categorias ficam nas linhas: Mobiliário em geral, Sem item de despesa etc.
+
+  function esc116(v){
+    return String(v ?? "").replace(/[&<>"']/g, s=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[s]));
+  }
+
+  function itemGrupoV116(b){
+    return b?.categoriaSecundaria || b?.categoria_secundaria || b?.categoriaPrincipal || b?.categoria_principal || "Sem item de despesa";
+  }
+
+  function depMesV116(b){
+    try{
+      if(typeof depMensalDep === "function") return Number(depMensalDep(b, mesSelecionado, anoSelecionado) || 0);
+      if(typeof depMensal === "function") return Number(depMensal(b, mesSelecionado, anoSelecionado) || 0);
+    }catch(e){}
+    return 0;
+  }
+
+  function depExercicioV116(b){
+    try{
+      if(typeof depAnoDep === "function") return Number(depAnoDep(b, mesSelecionado, anoSelecionado) || 0);
+      if(typeof depAnoAteMes === "function") return Number(depAnoAteMes(b, mesSelecionado, anoSelecionado) || 0);
+    }catch(e){}
+    return 0;
+  }
+
+  function depAnteriorV116(b){
+    try{
+      if(typeof depAcumuladaAnteriorDep === "function") return Number(depAcumuladaAnteriorDep(b, mesSelecionado, anoSelecionado) || 0);
+      if(typeof depAcumuladaBemAnterior === "function") return Number(depAcumuladaBemAnterior(b, mesSelecionado, anoSelecionado) || 0);
+    }catch(e){}
+    return Number(b?.depAcum || 0);
+  }
+
+  function saldoBemV116(b){
+    try{
+      if(typeof valorAtualizadoDep === "function") return Number(valorAtualizadoDep(b, mesSelecionado, anoSelecionado) || 0);
+      if(typeof valorAtualizadoBem === "function") return Number(valorAtualizadoBem(b, mesSelecionado, anoSelecionado) || 0);
+    }catch(e){}
+    const depTotal = depAnteriorV116(b) + depMesV116(b);
+    return Math.max(Number(b?.residual || 0), Number(b?.valor || 0) - depTotal);
+  }
+
+  function baseDepGrupoV116(){
+    const fonte = typeof bensDoRelatorio === "function" ? bensDoRelatorio(mesSelecionado, anoSelecionado) : (bens || []);
+    return deduplicarBens(fonte || []).filter(b=>b && b.situacao !== "Baixado");
+  }
+
+  function gruposDepreciacaoV116(){
+    const mapa = new Map();
+
+    baseDepGrupoV116().forEach(b=>{
+      const item = itemGrupoV116(b);
+      if(!mapa.has(item)){
+        mapa.set(item, {
+          item,
+          qtd:0,
+          aquisicao:0,
+          depreciacaoExercicio:0,
+          depreciacaoAcumulada:0,
+          saldo:0
+        });
+      }
+
+      const g = mapa.get(item);
+      const depAcumTotal = depAnteriorV116(b) + depMesV116(b);
+
+      g.qtd += 1;
+      g.aquisicao += Number(b.valor || 0);
+      g.depreciacaoExercicio += depExercicioV116(b);
+      g.depreciacaoAcumulada += depAcumTotal;
+      g.saldo += saldoBemV116(b);
+    });
+
+    return Array.from(mapa.values())
+      .map(g=>({
+        ...g,
+        aquisicao: Math.round(g.aquisicao * 100) / 100,
+        depreciacaoExercicio: Math.round(g.depreciacaoExercicio * 100) / 100,
+        depreciacaoAcumulada: Math.round(g.depreciacaoAcumulada * 100) / 100,
+        saldo: Math.round(g.saldo * 100) / 100
+      }))
+      .sort((a,b)=>a.item.localeCompare(b.item, "pt-BR", {numeric:true}));
+  }
+
+  function totaisDepGrupoV116(grupos){
+    return grupos.reduce((t,g)=>({
+      qtd: t.qtd + g.qtd,
+      aquisicao: t.aquisicao + g.aquisicao,
+      depreciacaoExercicio: t.depreciacaoExercicio + g.depreciacaoExercicio,
+      depreciacaoAcumulada: t.depreciacaoAcumulada + g.depreciacaoAcumulada,
+      saldo: t.saldo + g.saldo
+    }), {qtd:0, aquisicao:0, depreciacaoExercicio:0, depreciacaoAcumulada:0, saldo:0});
+  }
+
+  window.montarRelatorioDepreciacaoGrupo = function(){
+    const grupos = gruposDepreciacaoV116();
+    const total = totaisDepGrupoV116(grupos);
+
+    const linhas = grupos.map(g=>`
+      <tr>
+        <td>${esc116(g.item)}</td>
+        <td class="num">${g.qtd}</td>
+        <td class="num">${moeda(g.aquisicao)}</td>
+        <td class="num">${moeda(g.depreciacaoExercicio)}</td>
+        <td class="num">${moeda(g.depreciacaoAcumulada)}</td>
+        <td class="num"><strong>${moeda(g.saldo)}</strong></td>
+      </tr>
+    `).join("");
+
+    return `
+      <div class="relatorio-patrimonial-v74 dep-grupo-v116">
+        <div class="rp-header">
+          <div>
+            <div class="rp-gov">Governo do Estado do Ceará</div>
+            <h1>Depreciação por Grupo</h1>
+            <p class="rp-sub">Secretaria do Trabalho • Coordenadoria Administrativo-Financeira</p>
+            <p class="rp-meta">Competência: <strong>${competenciaAtualTexto()}</strong> • Posição: <strong>${dataPosicaoCompetencia()}</strong> • Data de emissão: <strong>${new Date().toLocaleDateString("pt-BR")} ${new Date().toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"})}</strong></p>
+          </div>
+          <div class="rp-logo">${logoSecretariaHTML ? logoSecretariaHTML() : "CEARÁ<br><small>Governo do Estado</small>"}</div>
+        </div>
+
+        <div class="rp-cards">
+          <div class="rp-card"><span>Total de grupos</span><strong>${grupos.length}</strong></div>
+          <div class="rp-card"><span>Total de bens</span><strong>${total.qtd}</strong></div>
+          <div class="rp-card"><span>Aquisição</span><strong>${moeda(total.aquisicao)}</strong></div>
+          <div class="rp-card"><span>Saldo</span><strong>${moeda(total.saldo)}</strong></div>
+        </div>
+
+        <div class="rp-note">
+          Este relatório consolida os bens por categoria/item de despesa. A coluna <strong>Aquisição</strong> representa o valor total dos bens do grupo; <strong>Depreciação do Exercício</strong> mostra a depreciação do ano até a competência; <strong>Depreciação Acumulada</strong> mostra a depreciação total até a competência; e <strong>Saldo</strong> representa o valor contábil líquido do grupo.
+        </div>
+
+        <h2 class="rp-table-title">Resumo por grupo / item de despesa</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Categoria / item de despesa</th>
+                <th class="num">Qtd.</th>
+                <th class="num">Aquisição</th>
+                <th class="num">Depreciação do exercício</th>
+                <th class="num">Depreciação acumulada</th>
+                <th class="num">Saldo</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${linhas || `<tr><td colspan="6">Nenhum grupo encontrado para a competência.</td></tr>`}
+              <tr class="total">
+                <td>Total</td>
+                <td class="num">${total.qtd}</td>
+                <td class="num">${moeda(total.aquisicao)}</td>
+                <td class="num">${moeda(total.depreciacaoExercicio)}</td>
+                <td class="num">${moeda(total.depreciacaoAcumulada)}</td>
+                <td class="num">${moeda(total.saldo)}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="rp-obs">
+          <h2>Observações</h2>
+          <div class="rp-obs-box obs-editavel" contenteditable="true" spellcheck="true" title="Clique para editar as observações antes de imprimir."></div>
+        </div>
+      </div>`;
+  };
+
+  window.abrirRelatorioDepreciacaoGrupo = function(){
+    const modal = document.getElementById("modalRelatorio");
+    const conteudo = document.getElementById("conteudoRelatorio");
+    if(modal && conteudo){
+      conteudo.innerHTML = montarRelatorioDepreciacaoGrupo();
+      modal.classList.remove("hidden");
+    }else{
+      imprimirRelatorioDepreciacaoGrupo();
+    }
+  };
+
+  window.imprimirRelatorioDepreciacaoGrupo = function(){
+    const conteudoEl = document.getElementById("conteudoRelatorio");
+    const modalAberto = conteudoEl && !document.getElementById("modalRelatorio")?.classList.contains("hidden") && conteudoEl.innerHTML.includes("Depreciação por Grupo");
+    abrirJanelaRelatorio("Depreciação por Grupo", modalAberto ? conteudoEl.innerHTML : montarRelatorioDepreciacaoGrupo());
+  };
+
+  function garantirRelatorioDepGrupoNaListaV116(){
+    const lista = document.querySelector("#relatorios .reports-list");
+    if(!lista || document.getElementById("relDepGrupoV116")) return;
+
+    lista.insertAdjacentHTML("beforeend", `
+      <div id="relDepGrupoV116" class="report-row">
+        <div>
+          <h3>Depreciação por Grupo</h3>
+          <p>Resumo por categoria/item de despesa com aquisição, depreciação do exercício, depreciação acumulada e saldo.</p>
+        </div>
+        <div class="report-actions">
+          <button class="primary" onclick="abrirRelatorioDepreciacaoGrupo()">Abrir</button>
+          <button onclick="imprimirRelatorioDepreciacaoGrupo()">Imprimir</button>
+        </div>
+      </div>
+    `);
+  }
+
+  const renderRelatoriosAnteriorV116 = window.renderRelatorios;
+  window.renderRelatorios = function(){
+    if(typeof renderRelatoriosAnteriorV116 === "function") renderRelatoriosAnteriorV116();
+    garantirRelatorioDepGrupoNaListaV116();
+  };
+
+  const renderTudoAnteriorV116 = window.renderTudo;
+  window.renderTudo = function(){
+    if(typeof renderTudoAnteriorV116 === "function") renderTudoAnteriorV116();
+    garantirRelatorioDepGrupoNaListaV116();
+  };
+
+  try{ renderRelatorios = window.renderRelatorios; }catch(e){}
+  try{ renderTudo = window.renderTudo; }catch(e){}
+
+  setTimeout(garantirRelatorioDepGrupoNaListaV116, 800);
+})();
+
+</script>
+
+<script>
+
+(function(){
+  // v117
+  // - Galeria e cadastro/listagem mostram somente a FOTO PRINCIPAL.
+  // - Nada de alternar entre foto e imagem quebrada: usa URL assinada em cache e só troca quando carregou.
+  // - Relatório "Depreciação por Grupo" corrigido para abrir sem erro de logo/variável indefinida.
+
+  window.__fotoPrincipalCacheV117 = window.__fotoPrincipalCacheV117 || {};
+  window.__fotoPrincipalLoadingV117 = window.__fotoPrincipalLoadingV117 || {};
+
+  function esc117(v){
+    return String(v ?? "").replace(/[&<>"']/g, s=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[s]));
+  }
+
+  function fotoKey117(a){
+    return `${a?.bucket || ""}/${a?.caminho_arquivo || ""}`;
+  }
+
+  function fotoPrincipalAnexo117(b){
+    const arr = Array.isArray(b?.anexos) ? b.anexos : [];
+    return arr.find(a=>a.tipo_anexo === "foto_principal") || null;
+  }
+
+  async function signedUrlFoto117(a){
+    if(!a) return "";
+    const key = fotoKey117(a);
+    if(key && window.__fotoPrincipalCacheV117[key]) return window.__fotoPrincipalCacheV117[key];
+
+    const tentativas = [];
+    if(a.bucket && a.caminho_arquivo) tentativas.push([a.bucket, a.caminho_arquivo]);
+    if(a.caminho_arquivo){
+      ["fotos-bens","documentos-siafe","etiquetas-patrimoniais"].forEach(bucket=>{
+        if(!tentativas.some(x=>x[0] === bucket && x[1] === a.caminho_arquivo)){
+          tentativas.push([bucket, a.caminho_arquivo]);
+        }
+      });
+    }
+
+    for(const [bucket,path] of tentativas){
+      try{
+        const { data, error } = await supabaseClient.storage.from(bucket).createSignedUrl(path, 60*60);
+        if(!error && data?.signedUrl){
+          if(key) window.__fotoPrincipalCacheV117[key] = data.signedUrl;
+          a.signedUrlV117 = data.signedUrl;
+          return data.signedUrl;
+        }
+      }catch(e){}
+    }
+    return "";
+  }
+
+  function somenteFotoPrincipalHTML117(b, classe="item-img"){
+    const a = fotoPrincipalAnexo117(b);
+    const key = a ? fotoKey117(a) : "";
+    const url = key ? window.__fotoPrincipalCacheV117[key] : "";
+    const pat = esc117(b?.pat || "");
+
+    if(url){
+      return `<div class="${classe} v117-foto-wrap" data-foto-pat="${pat}"><img src="${url}" alt="Foto principal do bem"></div>`;
+    }
+
+    if(a){
+      return `<div class="${classe} v117-foto-wrap sem-foto" data-foto-pat="${pat}"><span class="v117-foto-loading">Carregando foto...</span></div>`;
+    }
+
+    return `<div class="${classe} v117-foto-wrap sem-foto" data-foto-pat="${pat}">📦</div>`;
+  }
+
+  async function preencherFotoPrincipalElemento117(b, el){
+    const a = fotoPrincipalAnexo117(b);
+    if(!a || !el) return;
+
+    const key = fotoKey117(a);
+    if(window.__fotoPrincipalLoadingV117[key]) return;
+    window.__fotoPrincipalLoadingV117[key] = true;
+
+    try{
+      const url = await signedUrlFoto117(a);
+      if(!url) return;
+
+      // Pré-carrega antes de trocar, para não ficar piscando / imagem quebrada.
+      await new Promise((resolve,reject)=>{
+        const img = new Image();
+        img.onload = resolve;
+        img.onerror = reject;
+        img.src = url;
+      });
+
+      const atuais = document.querySelectorAll(`[data-foto-pat="${CSS.escape(String(b.pat))}"]`);
+      atuais.forEach(node=>{
+        node.classList.remove("sem-foto","erro-foto");
+        node.innerHTML = `<img src="${url}" alt="Foto principal do bem">`;
+      });
+      b.foto = url;
+    }catch(e){
+      const atuais = document.querySelectorAll(`[data-foto-pat="${CSS.escape(String(b.pat))}"]`);
+      atuais.forEach(node=>{
+        node.classList.add("erro-foto");
+        node.innerHTML = "📦";
+      });
+    }finally{
+      window.__fotoPrincipalLoadingV117[key] = false;
+    }
+  }
+
+  async function carregarAnexosFotosV117(){
+    try{
+      const ids = (bens || []).map(b=>b.id).filter(Boolean);
+      if(!ids.length || !window.supabaseClient) return;
+
+      const { data, error } = await supabaseClient
+        .from("anexos_bens")
+        .select("*")
+        .in("bem_id", ids);
+      if(error) throw error;
+
+      const porBem = new Map();
+      (data || []).forEach(a=>{
+        if(!porBem.has(a.bem_id)) porBem.set(a.bem_id, []);
+        porBem.get(a.bem_id).push(a);
+      });
+
+      (bens || []).forEach(b=>{
+        b.anexos = porBem.get(b.id) || b.anexos || [];
+        b.temFotoPrincipal = b.anexos.some(a=>a.tipo_anexo === "foto_principal");
+      });
+    }catch(e){
+      console.warn("Não carregou fotos principais v117:", e);
+    }
+  }
+
+  function preencherFotosVisiveisV117(){
+    const elementos = document.querySelectorAll("[data-foto-pat]");
+    elementos.forEach(el=>{
+      const pat = el.getAttribute("data-foto-pat");
+      const b = (bens || []).find(x=>String(x.pat) === String(pat));
+      if(b) preencherFotoPrincipalElemento117(b, el);
+    });
+  }
+
+  window.renderGaleria = function(){
+    const el = document.getElementById("galeriaGrid");
+    if(!el) return;
+
+    const base = (typeof bensDaCompetencia === "function" ? bensDaCompetencia() : (bens || [])).filter(b=>b.situacao !== "Baixado");
+    if(!base.length){
+      el.innerHTML = `<div class="empty">Nenhum bem cadastrado nesta competência.</div>`;
+      return;
+    }
+
+    el.innerHTML = base.slice(0,40).map(b=>`
+      <article class="item-card" onclick="abrirDetalhe('${esc117(b.pat)}')">
+        ${somenteFotoPrincipalHTML117(b, "item-img")}
+        <div class="item-card-body">
+          <h3 title="${esc117(b.pat)} • ${esc117(b.desc)}">${esc117(b.pat)} • ${esc117(b.desc)}</h3>
+          <p>${esc117(b.setor || "Sem setor")} | NF ${esc117(b.nf || "-")}</p>
+          <strong>${moeda(valorAtualizadoBem(b, mesSelecionado, anoSelecionado))}</strong>
+          <br><br>
+          <span class="${badgeSituacao(b.situacao)}">${esc117(b.situacao)}</span>
+          <button class="gallery-pdf-btn" onclick="event.stopPropagation();baixarRelatorioBemPDF('${esc117(b.pat)}')">Baixar PDF</button>
+        </div>
+      </article>
+    `).join("");
+
+    preencherFotosVisiveisV117();
+  };
+
+  // Ajusta a listagem do Cadastro de Bens depois de renderizar: usa só foto principal.
+  function ajustarThumbsCadastroV117(){
+    const tbody = document.getElementById("tabelaBens");
+    if(!tbody) return;
+
+    [...tbody.querySelectorAll("tr")].forEach(tr=>{
+      const pat = tr.querySelector("td:nth-child(2) strong")?.textContent?.trim();
+      if(!pat) return;
+
+      const b = (bens || []).find(x=>String(x.pat) === String(pat));
+      const cel = tr.querySelector("td:first-child");
+      if(!b || !cel) return;
+
+      cel.innerHTML = somenteFotoPrincipalHTML117(b, "thumb");
+      const wrap = cel.querySelector(".thumb");
+      if(wrap) wrap.classList.add("v117-thumb-wrap");
+    });
+
+    preencherFotosVisiveisV117();
+  }
+
+  const renderTabelaAnterior117 = window.renderTabela;
+  window.renderTabela = function(){
+    if(typeof renderTabelaAnterior117 === "function") renderTabelaAnterior117();
+    ajustarThumbsCadastroV117();
+  };
+  try{ renderTabela = window.renderTabela; }catch(e){}
+
+  // Também estabiliza a foto no Ver.
+  const abrirDetalheAnterior117 = window.abrirDetalhe;
+  window.abrirDetalhe = async function(pat){
+    const b = (bens || []).find(x=>String(x.pat) === String(pat));
+    if(b){
+      const a = fotoPrincipalAnexo117(b);
+      if(a){
+        const url = await signedUrlFoto117(a);
+        if(url) b.foto = url;
+      }
+    }
+    if(typeof abrirDetalheAnterior117 === "function"){
+      await abrirDetalheAnterior117(pat);
+      setTimeout(()=>{
+        const box = document.querySelector("#detalheConteudo .detail-photo");
+        if(box && b){
+          box.outerHTML = somenteFotoPrincipalHTML117(b, "detail-photo");
+          preencherFotosVisiveisV117();
+        }
+      }, 60);
+    }
+  };
+
+  function itemGrupoV117(b){
+    return b?.categoriaSecundaria || b?.categoria_secundaria || b?.categoriaPrincipal || b?.categoria_principal || "Sem item de despesa";
+  }
+
+  function depMesV117(b){
+    try{
+      if(typeof depMensalDep === "function") return Number(depMensalDep(b, mesSelecionado, anoSelecionado) || 0);
+      if(typeof depMensal === "function") return Number(depMensal(b, mesSelecionado, anoSelecionado) || 0);
+    }catch(e){}
+    return 0;
+  }
+
+  function depExercicioV117(b){
+    try{
+      if(typeof depAnoDep === "function") return Number(depAnoDep(b, mesSelecionado, anoSelecionado) || 0);
+      if(typeof depAnoAteMes === "function") return Number(depAnoAteMes(b, mesSelecionado, anoSelecionado) || 0);
+    }catch(e){}
+    return 0;
+  }
+
+  function depAnteriorV117(b){
+    try{
+      if(typeof depAcumuladaAnteriorDep === "function") return Number(depAcumuladaAnteriorDep(b, mesSelecionado, anoSelecionado) || 0);
+      if(typeof depAcumuladaBemAnterior === "function") return Number(depAcumuladaBemAnterior(b, mesSelecionado, anoSelecionado) || 0);
+    }catch(e){}
+    return Number(b?.depAcum || 0);
+  }
+
+  function saldoBemV117(b){
+    try{
+      if(typeof valorAtualizadoDep === "function") return Number(valorAtualizadoDep(b, mesSelecionado, anoSelecionado) || 0);
+      if(typeof valorAtualizadoBem === "function") return Number(valorAtualizadoBem(b, mesSelecionado, anoSelecionado) || 0);
+    }catch(e){}
+    return Math.max(Number(b?.residual || 0), Number(b?.valor || 0) - depAnteriorV117(b) - depMesV117(b));
+  }
+
+  function gruposDepGrupoV117(){
+    const fonte = typeof bensDoRelatorio === "function" ? bensDoRelatorio(mesSelecionado, anoSelecionado) : (bens || []);
+    const base = deduplicarBens(fonte || []).filter(b=>b && b.situacao !== "Baixado");
+    const mapa = new Map();
+
+    base.forEach(b=>{
+      const item = itemGrupoV117(b);
+      if(!mapa.has(item)){
+        mapa.set(item, {item, qtd:0, aquisicao:0, depreciacaoExercicio:0, depreciacaoAcumulada:0, saldo:0});
+      }
+      const g = mapa.get(item);
+      g.qtd += 1;
+      g.aquisicao += Number(b.valor || 0);
+      g.depreciacaoExercicio += depExercicioV117(b);
+      g.depreciacaoAcumulada += depAnteriorV117(b) + depMesV117(b);
+      g.saldo += saldoBemV117(b);
+    });
+
+    return Array.from(mapa.values())
+      .map(g=>({
+        ...g,
+        aquisicao: Math.round(g.aquisicao*100)/100,
+        depreciacaoExercicio: Math.round(g.depreciacaoExercicio*100)/100,
+        depreciacaoAcumulada: Math.round(g.depreciacaoAcumulada*100)/100,
+        saldo: Math.round(g.saldo*100)/100
+      }))
+      .sort((a,b)=>a.item.localeCompare(b.item, "pt-BR", {numeric:true}));
+  }
+
+  function logoSeguroV117(){
+    try{
+      if(typeof logoSecretariaHTML === "function") return logoSecretariaHTML();
+    }catch(e){}
+    return `<div class="brasao">⚜</div><div class="ceara">CEARÁ</div><small>Governo do Estado</small>`;
+  }
+
+  window.montarRelatorioDepreciacaoGrupo = function(){
+    const grupos = gruposDepGrupoV117();
+    const total = grupos.reduce((t,g)=>({
+      qtd:t.qtd+g.qtd,
+      aquisicao:t.aquisicao+g.aquisicao,
+      depreciacaoExercicio:t.depreciacaoExercicio+g.depreciacaoExercicio,
+      depreciacaoAcumulada:t.depreciacaoAcumulada+g.depreciacaoAcumulada,
+      saldo:t.saldo+g.saldo
+    }), {qtd:0,aquisicao:0,depreciacaoExercicio:0,depreciacaoAcumulada:0,saldo:0});
+
+    const linhas = grupos.map(g=>`
+      <tr>
+        <td>${esc117(g.item)}</td>
+        <td class="num">${g.qtd}</td>
+        <td class="num">${moeda(g.aquisicao)}</td>
+        <td class="num">${moeda(g.depreciacaoExercicio)}</td>
+        <td class="num">${moeda(g.depreciacaoAcumulada)}</td>
+        <td class="num"><strong>${moeda(g.saldo)}</strong></td>
+      </tr>`).join("");
+
+    return `
+      <div class="relatorio-patrimonial-v74 dep-grupo-v116 dep-grupo-v117">
+        <div class="rp-header">
+          <div>
+            <div class="rp-gov">Governo do Estado do Ceará</div>
+            <h1>Depreciação por Grupo</h1>
+            <p class="rp-sub">Secretaria do Trabalho • Coordenadoria Administrativo-Financeira</p>
+            <p class="rp-meta">Competência: <strong>${competenciaAtualTexto()}</strong> • Posição: <strong>${dataPosicaoCompetencia()}</strong> • Data de emissão: <strong>${new Date().toLocaleDateString("pt-BR")} ${new Date().toLocaleTimeString("pt-BR",{hour:"2-digit",minute:"2-digit"})}</strong></p>
+          </div>
+          <div class="rp-logo">${logoSeguroV117()}</div>
+        </div>
+
+        <div class="rp-cards">
+          <div class="rp-card"><span>Total de grupos</span><strong>${grupos.length}</strong></div>
+          <div class="rp-card"><span>Total de bens</span><strong>${total.qtd}</strong></div>
+          <div class="rp-card"><span>Aquisição</span><strong>${moeda(total.aquisicao)}</strong></div>
+          <div class="rp-card"><span>Saldo</span><strong>${moeda(total.saldo)}</strong></div>
+        </div>
+
+        <div class="rp-note">
+          Relatório consolidado por categoria/item de despesa, com aquisição, depreciação do exercício, depreciação acumulada e saldo.
+        </div>
+
+        <h2 class="rp-table-title">Resumo por grupo / item de despesa</h2>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Categoria / item de despesa</th>
+                <th class="num">Qtd.</th>
+                <th class="num">Aquisição</th>
+                <th class="num">Depreciação do exercício</th>
+                <th class="num">Depreciação acumulada</th>
+                <th class="num">Saldo</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${linhas || `<tr><td colspan="6">Nenhum grupo encontrado para a competência.</td></tr>`}
+              <tr class="total">
+                <td>Total</td>
+                <td class="num">${total.qtd}</td>
+                <td class="num">${moeda(total.aquisicao)}</td>
+                <td class="num">${moeda(total.depreciacaoExercicio)}</td>
+                <td class="num">${moeda(total.depreciacaoAcumulada)}</td>
+                <td class="num">${moeda(total.saldo)}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="rp-obs">
+          <h2>Observações</h2>
+          <div class="rp-obs-box obs-editavel" contenteditable="true" spellcheck="true"></div>
+        </div>
+      </div>`;
+  };
+
+  window.abrirRelatorioDepreciacaoGrupo = function(){
+    try{
+      const modal = document.getElementById("modalRelatorio");
+      const conteudo = document.getElementById("conteudoRelatorio");
+      if(modal && conteudo){
+        conteudo.innerHTML = montarRelatorioDepreciacaoGrupo();
+        modal.classList.remove("hidden");
+      }else{
+        imprimirRelatorioDepreciacaoGrupo();
+      }
+    }catch(e){
+      console.error(e);
+      alert("Erro ao abrir Depreciação por Grupo: " + (e.message || e));
+    }
+  };
+
+  window.imprimirRelatorioDepreciacaoGrupo = function(){
+    try{
+      abrirJanelaRelatorio("Depreciação por Grupo", montarRelatorioDepreciacaoGrupo());
+    }catch(e){
+      console.error(e);
+      alert("Erro ao imprimir Depreciação por Grupo: " + (e.message || e));
+    }
+  };
+
+  const renderTudoAnterior117 = window.renderTudo;
+  window.renderTudo = function(){
+    if(typeof renderTudoAnterior117 === "function") renderTudoAnterior117();
+    try{ window.renderGaleria(); }catch(e){}
+    try{ ajustarThumbsCadastroV117(); }catch(e){}
+  };
+  try{ renderTudo = window.renderTudo; }catch(e){}
+
+  const syncAnterior117 = window.sincronizarDoSupabase;
+  window.sincronizarDoSupabase = async function(preservarLocal=false){
+    if(typeof syncAnterior117 === "function") await syncAnterior117(preservarLocal);
+    await carregarAnexosFotosV117();
+    try{ window.renderGaleria(); }catch(e){}
+    try{ ajustarThumbsCadastroV117(); }catch(e){}
+  };
+
+  setTimeout(async ()=>{
+    await carregarAnexosFotosV117();
+    try{ window.renderGaleria(); }catch(e){}
+    try{ ajustarThumbsCadastroV117(); }catch(e){}
+  }, 1000);
 })();
 
 </script>
