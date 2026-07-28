@@ -3621,6 +3621,110 @@ button.doc-link-v106:hover,
   margin-left:8px;
 }
 
+
+/* v112 - tabela de bens com colunas maiores e sem coluna NF */
+#bens .table-wrap{
+  overflow-x:auto;
+}
+#bens table.pat-table-v112{
+  min-width:1780px;
+  table-layout:fixed;
+  width:100%;
+}
+#bens table.pat-table-v112 th,
+#bens table.pat-table-v112 td{
+  vertical-align:middle;
+}
+#bens table.pat-table-v112 th{
+  white-space:nowrap;
+}
+#bens table.pat-table-v112 .col-foto{width:72px}
+#bens table.pat-table-v112 .col-pat{width:105px}
+#bens table.pat-table-v112 .col-desc{width:420px}
+#bens table.pat-table-v112 .col-setor{width:190px}
+#bens table.pat-table-v112 .col-resp{width:210px}
+#bens table.pat-table-v112 .col-valor{width:145px}
+#bens table.pat-table-v112 .col-residual{width:125px}
+#bens table.pat-table-v112 .col-taxa{width:115px}
+#bens table.pat-table-v112 .col-dep{width:155px}
+#bens table.pat-table-v112 .col-atual{width:155px}
+#bens table.pat-table-v112 .col-sit{width:150px}
+#bens table.pat-table-v112 .col-acoes{width:205px}
+#bens .desc-cell-v112{
+  white-space:normal;
+  line-height:1.35;
+  max-width:420px;
+  word-break:normal;
+  overflow-wrap:break-word;
+}
+#bens .setor-cell-v112,
+#bens .resp-cell-v112{
+  white-space:normal;
+  line-height:1.25;
+  overflow-wrap:break-word;
+}
+#bens .money-cell-v112,
+#bens .taxa-cell-v112{
+  white-space:nowrap;
+}
+#bens .acoes-cell-v112 .actions{
+  display:flex;
+  gap:7px;
+  flex-wrap:nowrap;
+}
+#bens .acoes-cell-v112 button{
+  padding:9px 12px;
+}
+#bens .sort-label-v112{
+  display:inline-flex;
+  align-items:center;
+  gap:5px;
+}
+#bens .sort-arrow-v112{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:16px;
+  height:16px;
+  border-radius:50%;
+  background:#dff3f7;
+  color:#075d7d;
+  font-size:10px;
+  font-weight:1000;
+}
+#bens th.active .sort-arrow-v112{
+  background:#0b7b8a;
+  color:#fff;
+}
+#bens .sort-th-v112{
+  cursor:pointer;
+  user-select:none;
+}
+#bens .sort-th-v112:hover .sort-arrow-v112{
+  filter:brightness(.95);
+}
+#sortInfoV112{
+  font-size:11px;
+  color:#526779;
+  font-weight:800;
+  margin-top:6px;
+}
+#sortInfoV112 button{
+  border:0;
+  background:#eef8fb;
+  color:#075d7d;
+  border-radius:10px;
+  padding:6px 10px;
+  font-weight:900;
+  cursor:pointer;
+  margin-left:8px;
+}
+@media(max-width:900px){
+  #bens table.pat-table-v112{
+    min-width:1650px;
+  }
+}
+
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
@@ -21728,6 +21832,174 @@ function depAcumuladaTotalAteMesAnterior(){
   }
 
   setTimeout(aplicarCabecalhoOrdenavelV111, 500);
+})();
+
+</script>
+
+<script>
+
+(function(){
+  // v112 - Ajuste de dimensão da tabela do Cadastro de Bens:
+  // descrição maior, colunas com largura melhor e coluna NF removida da listagem.
+  // A NF continua guardada no cadastro/ficha/relatórios; só não aparece nessa tabela.
+
+  const COLS_V112 = [
+    {campo:null, label:"Foto", cls:"col-foto"},
+    {campo:"pat", label:"Nº Patrim.", cls:"col-pat"},
+    {campo:"desc", label:"Descrição", cls:"col-desc"},
+    {campo:"setor", label:"Setor", cls:"col-setor"},
+    {campo:"responsavel", label:"Responsável", cls:"col-resp"},
+    {campo:"valor", label:"Valor Aquisição", cls:"col-valor"},
+    {campo:"residual", label:"Residual", cls:"col-residual"},
+    {campo:"taxa", label:"Taxa Deprec.", cls:"col-taxa"},
+    {campo:"depAcum", label:"Depr. Acumulada", cls:"col-dep"},
+    {campo:"atual", label:"Valor Atualizado", cls:"col-atual"},
+    {campo:"situacao", label:"Situação", cls:"col-sit"},
+    {campo:null, label:"Ações", cls:"col-acoes"}
+  ];
+
+  function escV112(v){
+    return String(v ?? "").replace(/[&<>"']/g, s=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[s]));
+  }
+
+  function textoCampoAtivoV112(campo){
+    const mapa = {
+      adicionado:"ordem de cadastro",
+      pat:"nº patrimonial",
+      desc:"descrição",
+      setor:"setor",
+      responsavel:"responsável",
+      valor:"valor de aquisição",
+      residual:"valor residual",
+      taxa:"taxa",
+      depAcum:"depreciação acumulada",
+      atual:"valor atualizado",
+      situacao:"situação"
+    };
+    return mapa[campo] || "ordem de cadastro";
+  }
+
+  function cabecalhoV112(){
+    const st = window.ordemBensV111 || {campo:"adicionado", dir:"asc"};
+    return COLS_V112.map(col=>{
+      if(!col.campo){
+        return `<th class="${col.cls || ""}">${col.label}</th>`;
+      }
+      const ativo = st.campo === col.campo;
+      const arrow = ativo ? (st.dir === "asc" ? "▲" : "▼") : "↕";
+      return `<th class="${col.cls || ""} sort-th-v112 ${ativo ? "active" : ""}" onclick="ordenarBensV111('${col.campo}')" title="Clique para ordenar por ${col.label}">
+        <span class="sort-label-v112">${col.label}<span class="sort-arrow-v112">${arrow}</span></span>
+      </th>`;
+    }).join("");
+  }
+
+  function colgroupV112(){
+    return `<colgroup>${COLS_V112.map(c=>`<col class="${c.cls || ""}">`).join("")}</colgroup>`;
+  }
+
+  function garantirTabelaV112(){
+    const tbody = document.getElementById("tabelaBens");
+    const table = tbody?.closest("table");
+    if(!table) return null;
+
+    table.classList.add("pat-table-v112");
+
+    if(!table.querySelector("colgroup")){
+      table.insertAdjacentHTML("afterbegin", colgroupV112());
+    }else{
+      table.querySelector("colgroup").outerHTML = colgroupV112();
+    }
+
+    const tr = table.querySelector("thead tr");
+    if(tr) tr.innerHTML = cabecalhoV112();
+
+    return table;
+  }
+
+  function atualizarInfoSortV112(table){
+    const wrap = table?.closest(".table-wrap");
+    if(!wrap) return;
+    const antigo = document.getElementById("sortInfoV111");
+    if(antigo) antigo.remove();
+
+    let info = document.getElementById("sortInfoV112");
+    if(!info){
+      info = document.createElement("div");
+      info.id = "sortInfoV112";
+      const pag = wrap.querySelector(".pagination");
+      if(pag) wrap.insertBefore(info, pag);
+      else wrap.appendChild(info);
+    }
+
+    const st = window.ordemBensV111 || {campo:"adicionado", dir:"asc"};
+    info.innerHTML = `Ordem atual: <strong>${textoCampoAtivoV112(st.campo)}</strong> ${st.dir === "asc" ? "crescente" : "decrescente"}.
+      <button type="button" onclick="ordemCadastroBensV111()">Voltar para ordem de cadastro</button>`;
+  }
+
+  window.renderTabela = function(){
+    const tbody = document.getElementById("tabelaBens");
+    if(!tbody) return;
+
+    const por = parseInt(document.getElementById("porPagina")?.value || "25");
+    const rows = typeof filtrados === "function" ? filtrados() : [];
+    const totalPag = Math.max(1, Math.ceil(rows.length / por));
+    try{ pagina = Math.min(pagina, totalPag); }catch(e){}
+    const pagAtual = typeof pagina === "number" ? pagina : 1;
+    const inicio = (pagAtual - 1) * por;
+    const page = rows.slice(inicio, inicio + por);
+
+    const table = garantirTabelaV112();
+
+    if(!page.length){
+      tbody.innerHTML = `<tr><td colspan="12" class="empty">Nenhum bem cadastrado ainda.</td></tr>`;
+      const infoPag = document.getElementById("infoPag");
+      if(infoPag) infoPag.textContent = `Página ${pagAtual} de ${totalPag} • ${rows.length} itens`;
+      atualizarInfoSortV112(table);
+      return;
+    }
+
+    tbody.innerHTML = page.map(b=>{
+      const depAcumCalc = depAcumuladaBemAnterior(b, mesSelecionado, anoSelecionado);
+      const atual = valorAtualizadoBem(b, mesSelecionado, anoSelecionado);
+      return `
+        <tr>
+          <td><div class="thumb">${b.foto ? `<img src="${b.foto}">` : "📷"}</div></td>
+          <td><strong>${escV112(b.pat)}</strong></td>
+          <td class="desc-cell-v112" title="${escV112(b.desc)}">${escV112(b.desc)}</td>
+          <td class="setor-cell-v112">${escV112(b.setor || "-")}</td>
+          <td class="resp-cell-v112">${escV112(b.responsavel || "-")}</td>
+          <td class="money-cell-v112">${moeda(b.valor)}</td>
+          <td class="money-cell-v112">${moeda(b.residual)}</td>
+          <td class="taxa-cell-v112">${escV112(b.taxa)}</td>
+          <td class="money-cell-v112">${moeda(depAcumCalc)}</td>
+          <td class="money-cell-v112"><strong>${moeda(atual)}</strong></td>
+          <td><span class="${badgeSituacao(b.situacao)}">${escV112(b.situacao)}</span></td>
+          <td class="acoes-cell-v112"><div class="actions">
+            <button onclick="abrirDetalhe('${escV112(b.pat)}')">Ver</button>
+            <button data-edit-action onclick="podeEditar()?abrirCadastro('${escV112(b.pat)}'):avisarSemPermissao()">Editar</button>
+            <button class="delete-btn" data-edit-action onclick="podeEditar()?excluirItemPatrimonial('${escV112(b.pat)}'):avisarSemPermissao()">Excluir</button>
+          </div></td>
+        </tr>`;
+    }).join("");
+
+    const infoPag = document.getElementById("infoPag");
+    if(infoPag) infoPag.textContent = `Página ${pagAtual} de ${totalPag} • ${rows.length} itens`;
+    atualizarInfoSortV112(table);
+    if(typeof aplicarPermissoes === "function") aplicarPermissoes();
+  };
+
+  try{ renderTabela = window.renderTabela; }catch(e){}
+
+  const renderTudoAnteriorV112 = window.renderTudo;
+  if(typeof renderTudoAnteriorV112 === "function"){
+    window.renderTudo = function(){
+      renderTudoAnteriorV112();
+      window.renderTabela();
+    };
+    try{ renderTudo = window.renderTudo; }catch(e){}
+  }
+
+  setTimeout(()=>window.renderTabela(), 500);
 })();
 
 </script>
