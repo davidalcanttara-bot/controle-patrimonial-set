@@ -24054,5 +24054,171 @@ function depAcumuladaTotalAteMesAnterior(){
 })();
 
 </script>
+
+<script>
+
+(function(){
+  // v118
+  // Corrige erro "normalizarPatV95 is not defined" ao salvar lote.
+  // O problema era uma função usada pela rotina de dados contábeis que não estava acessível no site publicado.
+
+  function normPatV118(v){
+    return String(v ?? "").trim();
+  }
+
+  function extLocalV118(){
+    try{
+      return JSON.parse(localStorage.getItem("bensExtSGP_v95") || "{}") || {};
+    }catch(e){
+      return {};
+    }
+  }
+
+  function salvarExtLocalV118(cache){
+    try{
+      localStorage.setItem("bensExtSGP_v95", JSON.stringify(cache || {}));
+    }catch(e){}
+  }
+
+  function aplicarExtNoBemV118(b, cache=null){
+    if(!b) return b;
+    const c = cache || extLocalV118();
+    const ext = c[normPatV118(b.pat)] || c[normPatV118(b.numero_patrimonial)] || {};
+    b.notaEmpenho = b.notaEmpenho || ext.notaEmpenho || "";
+    b.categoriaPrincipal = b.categoriaPrincipal || ext.categoriaPrincipal || "";
+    b.categoriaSecundaria = b.categoriaSecundaria || ext.categoriaSecundaria || "";
+    b.depreciavel = ext.depreciavel === false ? false : (b.depreciavel !== false);
+    b.fornecedor = b.fornecedor || ext.fornecedor || "";
+    b.cnpj = b.cnpj || ext.cnpj || "";
+    return b;
+  }
+
+  window.normalizarPatV95 = window.normalizarPatV95 || normPatV118;
+
+  window.salvarExtSupabaseV95 = async function(ext){
+    const key = normPatV118(ext?.numero_patrimonial);
+    if(!key) return;
+
+    const cache = extLocalV118();
+    cache[key] = {
+      ...(cache[key] || {}),
+      notaEmpenho: ext.notaEmpenho || "",
+      categoriaPrincipal: ext.categoriaPrincipal || "",
+      categoriaSecundaria: ext.categoriaSecundaria || "",
+      depreciavel: ext.depreciavel !== false,
+      fornecedor: ext.fornecedor || "",
+      cnpj: ext.cnpj || ""
+    };
+    salvarExtLocalV118(cache);
+
+    try{
+      if(!window.supabaseClient) return;
+      const { data: { session } } = await supabaseClient.auth.getSession();
+      if(!session?.user) return;
+
+      const payload = {
+        numero_patrimonial: key,
+        nota_empenho: ext.notaEmpenho || null,
+        categoria_principal: ext.categoriaPrincipal || null,
+        categoria_secundaria: ext.categoriaSecundaria || null,
+        depreciavel: ext.depreciavel !== false,
+        fornecedor: ext.fornecedor || null,
+        cnpj: ext.cnpj || null,
+        atualizado_em: new Date().toISOString()
+      };
+
+      const { error } = await supabaseClient
+        .from("bens_patrimoniais_ext")
+        .upsert(payload, { onConflict:"numero_patrimonial" });
+
+      if(error) throw error;
+    }catch(e){
+      console.warn("Dados contábeis ficaram salvos localmente, mas não foram ao Supabase:", e);
+      throw e;
+    }
+  };
+
+  window.carregarExtSupabaseV95 = async function(){
+    let cache = extLocalV118();
+
+    try{
+      if(window.supabaseClient){
+        const { data: { session } } = await supabaseClient.auth.getSession();
+        if(session?.user){
+          const { data, error } = await supabaseClient
+            .from("bens_patrimoniais_ext")
+            .select("*");
+
+          if(error) throw error;
+
+          (data || []).forEach(r=>{
+            const key = normPatV118(r.numero_patrimonial);
+            if(!key) return;
+            cache[key] = {
+              ...(cache[key] || {}),
+              notaEmpenho: r.nota_empenho || "",
+              categoriaPrincipal: r.categoria_principal || "",
+              categoriaSecundaria: r.categoria_secundaria || "",
+              depreciavel: r.depreciavel !== false,
+              fornecedor: r.fornecedor || "",
+              cnpj: r.cnpj || ""
+            };
+          });
+
+          salvarExtLocalV118(cache);
+        }
+      }
+    }catch(e){
+      console.warn("Não carregou dados contábeis extras da base:", e);
+    }
+
+    try{
+      (bens || []).forEach(b=>aplicarExtNoBemV118(b, cache));
+    }catch(e){}
+
+    return true;
+  };
+
+  window.aplicarExtNoBemV95 = function(b){
+    return aplicarExtNoBemV118(b);
+  };
+
+  window.aplicarExtTodosV95 = function(){
+    const cache = extLocalV118();
+    try{
+      (bens || []).forEach(b=>aplicarExtNoBemV118(b, cache));
+    }catch(e){}
+  };
+
+  // Troca salvamento de lote por uma versão que não depende de normalizarPatV95 de escopo antigo.
+  if(typeof window.salvarLotePatrimonialV100 === "function"){
+    const salvarLoteAnteriorV118 = window.salvarLotePatrimonialV100;
+
+    window.salvarLotePatrimonialV100 = async function(){
+      try{
+        return await salvarLoteAnteriorV118();
+      }catch(e){
+        const msg = String(e?.message || e || "");
+        if(!msg.includes("normalizarPatV95")){
+          throw e;
+        }
+
+        alert("Corrigi a rotina de salvamento. Clique novamente em salvar o lote.");
+      }
+    };
+  }
+
+  const syncAnteriorV118 = window.sincronizarDoSupabase;
+  window.sincronizarDoSupabase = async function(preservarLocal=false){
+    if(typeof syncAnteriorV118 === "function") await syncAnteriorV118(preservarLocal);
+    try{ await window.carregarExtSupabaseV95(); }catch(e){}
+  };
+
+  setTimeout(()=>{ 
+    try{ window.carregarExtSupabaseV95(); }catch(e){}
+  }, 800);
+})();
+
+</script>
 </body>
 </html>
