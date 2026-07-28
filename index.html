@@ -3725,6 +3725,137 @@ button.doc-link-v106:hover,
   }
 }
 
+
+/* v113 - tabela mais compacta e rolagem superior */
+#bens .table-wrap{
+  overflow-x:auto!important;
+  overflow-y:visible;
+  border-radius:18px;
+}
+#bens table.pat-table-v112,
+#bens table.pat-table-v113{
+  table-layout:fixed!important;
+  min-width:1360px!important;
+  width:100%!important;
+}
+#bens table.pat-table-v112 th,
+#bens table.pat-table-v112 td,
+#bens table.pat-table-v113 th,
+#bens table.pat-table-v113 td{
+  padding:8px 6px!important;
+  font-size:12px!important;
+  vertical-align:middle!important;
+}
+#bens table.pat-table-v112 th,
+#bens table.pat-table-v113 th{
+  font-size:10.5px!important;
+  white-space:nowrap!important;
+  letter-spacing:.1px;
+}
+#bens table.pat-table-v112 .col-foto,
+#bens table.pat-table-v113 .col-foto{width:54px!important}
+#bens table.pat-table-v112 .col-pat,
+#bens table.pat-table-v113 .col-pat{width:74px!important}
+#bens table.pat-table-v112 .col-desc,
+#bens table.pat-table-v113 .col-desc{width:335px!important}
+#bens table.pat-table-v112 .col-setor,
+#bens table.pat-table-v113 .col-setor{width:90px!important}
+#bens table.pat-table-v112 .col-resp,
+#bens table.pat-table-v113 .col-resp{width:112px!important}
+#bens table.pat-table-v112 .col-valor,
+#bens table.pat-table-v113 .col-valor{width:105px!important}
+#bens table.pat-table-v112 .col-residual,
+#bens table.pat-table-v113 .col-residual{width:84px!important}
+#bens table.pat-table-v112 .col-taxa,
+#bens table.pat-table-v113 .col-taxa{width:82px!important}
+#bens table.pat-table-v112 .col-dep,
+#bens table.pat-table-v113 .col-dep{width:112px!important}
+#bens table.pat-table-v112 .col-atual,
+#bens table.pat-table-v113 .col-atual{width:112px!important}
+#bens table.pat-table-v112 .col-sit,
+#bens table.pat-table-v113 .col-sit{width:105px!important}
+#bens table.pat-table-v112 .col-acoes,
+#bens table.pat-table-v113 .col-acoes{width:155px!important}
+#bens .desc-cell-v112,
+#bens .desc-cell-v113{
+  max-width:335px!important;
+  line-height:1.3!important;
+  white-space:normal!important;
+  overflow-wrap:break-word!important;
+  word-break:normal!important;
+}
+#bens .setor-cell-v112,
+#bens .resp-cell-v112,
+#bens .setor-cell-v113,
+#bens .resp-cell-v113{
+  line-height:1.25!important;
+  white-space:normal!important;
+  overflow-wrap:break-word!important;
+}
+#bens .money-cell-v112,
+#bens .taxa-cell-v112,
+#bens .money-cell-v113,
+#bens .taxa-cell-v113{
+  white-space:nowrap!important;
+}
+#bens .acoes-cell-v112 .actions,
+#bens .acoes-cell-v113 .actions{
+  display:flex!important;
+  gap:5px!important;
+  flex-wrap:nowrap!important;
+  justify-content:flex-start!important;
+}
+#bens .acoes-cell-v112 button,
+#bens .acoes-cell-v113 button{
+  padding:7px 9px!important;
+  font-size:11.5px!important;
+  border-radius:10px!important;
+  white-space:nowrap!important;
+}
+#bens .thumb{
+  width:48px!important;
+  height:48px!important;
+  min-width:48px!important;
+}
+#bens .badge,
+#bens .status,
+#bens [class*="badge-"]{
+  white-space:nowrap;
+}
+#bensTopScrollV113{
+  width:100%;
+  overflow-x:auto;
+  overflow-y:hidden;
+  height:18px;
+  margin:0 0 8px 0;
+  border-radius:10px;
+  background:#eef8fb;
+}
+#bensTopScrollInnerV113{
+  height:1px;
+}
+#bensTopScrollV113::-webkit-scrollbar{
+  height:12px;
+}
+#bensTopScrollV113::-webkit-scrollbar-thumb{
+  background:#9ab3bd;
+  border-radius:12px;
+}
+#bensTopScrollV113::-webkit-scrollbar-track{
+  background:#e3f0f4;
+  border-radius:12px;
+}
+#bens .sort-label-v112,
+#bens .sort-label-v113{
+  gap:3px!important;
+}
+#bens .sort-arrow-v112,
+#bens .sort-arrow-v113{
+  width:15px!important;
+  height:15px!important;
+  font-size:9px!important;
+}
+
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
@@ -21998,6 +22129,228 @@ function depAcumuladaTotalAteMesAnterior(){
     };
     try{ renderTudo = window.renderTudo; }catch(e){}
   }
+
+  setTimeout(()=>window.renderTabela(), 500);
+})();
+
+</script>
+
+<script>
+
+(function(){
+  // v113 - Ajuste só na versão: tabela mais compacta e barra de rolagem horizontal em cima.
+  // Não mexe na base de dados.
+
+  const COLS_V113 = [
+    {campo:null, label:"Foto", cls:"col-foto"},
+    {campo:"pat", label:"Nº Patrim.", cls:"col-pat"},
+    {campo:"desc", label:"Descrição", cls:"col-desc"},
+    {campo:"setor", label:"Setor", cls:"col-setor"},
+    {campo:"responsavel", label:"Responsável", cls:"col-resp"},
+    {campo:"valor", label:"Valor Aquisição", cls:"col-valor"},
+    {campo:"residual", label:"Residual", cls:"col-residual"},
+    {campo:"taxa", label:"Taxa Deprec.", cls:"col-taxa"},
+    {campo:"depAcum", label:"Depr. Acum.", cls:"col-dep"},
+    {campo:"atual", label:"Valor Atual", cls:"col-atual"},
+    {campo:"situacao", label:"Situação", cls:"col-sit"},
+    {campo:null, label:"Ações", cls:"col-acoes"}
+  ];
+
+  function escV113(v){
+    return String(v ?? "").replace(/[&<>"']/g, s=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[s]));
+  }
+
+  function cabecalhoV113(){
+    const st = window.ordemBensV111 || {campo:"adicionado", dir:"asc"};
+    return COLS_V113.map(col=>{
+      if(!col.campo){
+        return `<th class="${col.cls || ""}">${col.label}</th>`;
+      }
+      const ativo = st.campo === col.campo;
+      const arrow = ativo ? (st.dir === "asc" ? "▲" : "▼") : "↕";
+      return `<th class="${col.cls || ""} sort-th-v112 sort-th-v113 ${ativo ? "active" : ""}" onclick="ordenarBensV111('${col.campo}')" title="Ordenar por ${col.label}">
+        <span class="sort-label-v112 sort-label-v113">${col.label}<span class="sort-arrow-v112 sort-arrow-v113">${arrow}</span></span>
+      </th>`;
+    }).join("");
+  }
+
+  function colgroupV113(){
+    return `<colgroup>${COLS_V113.map(c=>`<col class="${c.cls || ""}">`).join("")}</colgroup>`;
+  }
+
+  function garantirTabelaV113(){
+    const tbody = document.getElementById("tabelaBens");
+    const table = tbody?.closest("table");
+    if(!table) return null;
+
+    table.classList.add("pat-table-v113");
+
+    if(!table.querySelector("colgroup")){
+      table.insertAdjacentHTML("afterbegin", colgroupV113());
+    }else{
+      table.querySelector("colgroup").outerHTML = colgroupV113();
+    }
+
+    const tr = table.querySelector("thead tr");
+    if(tr) tr.innerHTML = cabecalhoV113();
+
+    return table;
+  }
+
+  function textoCampoV113(campo){
+    const mapa = {
+      adicionado:"ordem de cadastro",
+      pat:"nº patrimonial",
+      desc:"descrição",
+      setor:"setor",
+      responsavel:"responsável",
+      valor:"valor de aquisição",
+      residual:"residual",
+      taxa:"taxa",
+      depAcum:"depreciação acumulada",
+      atual:"valor atualizado",
+      situacao:"situação"
+    };
+    return mapa[campo] || "ordem de cadastro";
+  }
+
+  function garantirTopScrollV113(table){
+    if(!table) return;
+    const wrap = table.closest(".table-wrap");
+    if(!wrap) return;
+
+    let top = document.getElementById("bensTopScrollV113");
+    if(!top){
+      top = document.createElement("div");
+      top.id = "bensTopScrollV113";
+      top.innerHTML = `<div id="bensTopScrollInnerV113"></div>`;
+      wrap.parentNode.insertBefore(top, wrap);
+    }
+
+    const inner = document.getElementById("bensTopScrollInnerV113");
+    if(inner){
+      inner.style.width = Math.max(table.scrollWidth, wrap.scrollWidth, wrap.clientWidth) + "px";
+    }
+
+    if(!top.dataset.sync){
+      top.dataset.sync = "1";
+      let lockTop = false;
+      let lockBottom = false;
+
+      top.addEventListener("scroll", ()=>{
+        if(lockBottom) return;
+        lockTop = true;
+        wrap.scrollLeft = top.scrollLeft;
+        lockTop = false;
+      });
+
+      wrap.addEventListener("scroll", ()=>{
+        if(lockTop) return;
+        lockBottom = true;
+        top.scrollLeft = wrap.scrollLeft;
+        lockBottom = false;
+      });
+    }
+
+    top.scrollLeft = wrap.scrollLeft;
+  }
+
+  function atualizarInfoSortV113(table){
+    const wrap = table?.closest(".table-wrap");
+    if(!wrap) return;
+
+    const antigo111 = document.getElementById("sortInfoV111");
+    if(antigo111) antigo111.remove();
+
+    let info = document.getElementById("sortInfoV112");
+    if(!info){
+      info = document.createElement("div");
+      info.id = "sortInfoV112";
+      const pag = wrap.querySelector(".pagination");
+      if(pag) wrap.insertBefore(info, pag);
+      else wrap.appendChild(info);
+    }
+
+    const st = window.ordemBensV111 || {campo:"adicionado", dir:"asc"};
+    info.innerHTML = `Ordem atual: <strong>${textoCampoV113(st.campo)}</strong> ${st.dir === "asc" ? "crescente" : "decrescente"}.
+      <button type="button" onclick="ordemCadastroBensV111()">Voltar para ordem de cadastro</button>`;
+  }
+
+  window.renderTabela = function(){
+    const tbody = document.getElementById("tabelaBens");
+    if(!tbody) return;
+
+    const por = parseInt(document.getElementById("porPagina")?.value || "25");
+    const rows = typeof filtrados === "function" ? filtrados() : [];
+    const totalPag = Math.max(1, Math.ceil(rows.length / por));
+    try{ pagina = Math.min(pagina, totalPag); }catch(e){}
+    const pagAtual = typeof pagina === "number" ? pagina : 1;
+    const inicio = (pagAtual - 1) * por;
+    const page = rows.slice(inicio, inicio + por);
+
+    const table = garantirTabelaV113();
+
+    if(!page.length){
+      tbody.innerHTML = `<tr><td colspan="12" class="empty">Nenhum bem cadastrado ainda.</td></tr>`;
+      const infoPag = document.getElementById("infoPag");
+      if(infoPag) infoPag.textContent = `Página ${pagAtual} de ${totalPag} • ${rows.length} itens`;
+      atualizarInfoSortV113(table);
+      garantirTopScrollV113(table);
+      return;
+    }
+
+    tbody.innerHTML = page.map(b=>{
+      const depAcumCalc = depAcumuladaBemAnterior(b, mesSelecionado, anoSelecionado);
+      const atual = valorAtualizadoBem(b, mesSelecionado, anoSelecionado);
+      return `
+        <tr>
+          <td><div class="thumb">${b.foto ? `<img src="${b.foto}">` : "📷"}</div></td>
+          <td><strong>${escV113(b.pat)}</strong></td>
+          <td class="desc-cell-v112 desc-cell-v113" title="${escV113(b.desc)}">${escV113(b.desc)}</td>
+          <td class="setor-cell-v112 setor-cell-v113">${escV113(b.setor || "-")}</td>
+          <td class="resp-cell-v112 resp-cell-v113">${escV113(b.responsavel || "-")}</td>
+          <td class="money-cell-v112 money-cell-v113">${moeda(b.valor)}</td>
+          <td class="money-cell-v112 money-cell-v113">${moeda(b.residual)}</td>
+          <td class="taxa-cell-v112 taxa-cell-v113">${escV113(b.taxa)}</td>
+          <td class="money-cell-v112 money-cell-v113">${moeda(depAcumCalc)}</td>
+          <td class="money-cell-v112 money-cell-v113"><strong>${moeda(atual)}</strong></td>
+          <td><span class="${badgeSituacao(b.situacao)}">${escV113(b.situacao)}</span></td>
+          <td class="acoes-cell-v112 acoes-cell-v113"><div class="actions">
+            <button onclick="abrirDetalhe('${escV113(b.pat)}')">Ver</button>
+            <button data-edit-action onclick="podeEditar()?abrirCadastro('${escV113(b.pat)}'):avisarSemPermissao()">Editar</button>
+            <button class="delete-btn" data-edit-action onclick="podeEditar()?excluirItemPatrimonial('${escV113(b.pat)}'):avisarSemPermissao()">Excluir</button>
+          </div></td>
+        </tr>`;
+    }).join("");
+
+    const infoPag = document.getElementById("infoPag");
+    if(infoPag) infoPag.textContent = `Página ${pagAtual} de ${totalPag} • ${rows.length} itens`;
+
+    atualizarInfoSortV113(table);
+    garantirTopScrollV113(table);
+
+    requestAnimationFrame(()=>{
+      garantirTopScrollV113(table);
+    });
+
+    if(typeof aplicarPermissoes === "function") aplicarPermissoes();
+  };
+
+  try{ renderTabela = window.renderTabela; }catch(e){}
+
+  const renderTudoAnteriorV113 = window.renderTudo;
+  if(typeof renderTudoAnteriorV113 === "function"){
+    window.renderTudo = function(){
+      renderTudoAnteriorV113();
+      window.renderTabela();
+    };
+    try{ renderTudo = window.renderTudo; }catch(e){}
+  }
+
+  window.addEventListener("resize", ()=>{
+    const table = document.querySelector("#tabelaBens")?.closest("table");
+    garantirTopScrollV113(table);
+  });
 
   setTimeout(()=>window.renderTabela(), 500);
 })();
