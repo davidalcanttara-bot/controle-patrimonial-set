@@ -1,0 +1,14 @@
+TRANCELIM v219 — CONEXÃO COM A BASE E DESEMPENHO
+
+Base: v218 Publicação Otimizada.
+
+Alterações:
+- Indicador visível de conexão com a base Supabase no Portal e no Patrimônio.
+- Teste automático da disponibilidade da base, com estados verificando, conectado e sem conexão.
+- Mantida a autenticação e as operações existentes do Portal e do Patrimônio no Supabase.
+- Cache inteligente dos arquivos estáticos por Service Worker, acelerando as próximas aberturas.
+- OCR da Prestação de Contas passou a carregar somente quando necessário.
+- Adicionados preconnect/dns-prefetch para reduzir o tempo de conexão com Supabase e bibliotecas externas.
+- Encerramento Mensal e Prestação de Contas continuam preservando seus dados locais em localStorage/IndexedDB.
+
+IMPORTANTE: o Portal/Login e o módulo Patrimônio utilizam Supabase. Encerramento Mensal e Prestação de Contas ainda não gravam seus dados operacionais no Supabase nesta versão.

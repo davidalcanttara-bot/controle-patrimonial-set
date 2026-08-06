@@ -1,0 +1,25 @@
+/* v135 — lista de bens, seleção em lote, data de cadastro e proteção de rolagem */
+.sidebar{overflow-y:auto;overscroll-behavior-y:contain}
+.sidebar .side-status{position:static;margin-top:20px}
+.main,#pendencias{overscroll-behavior-y:contain}
+.side-head{touch-action:pan-y}
+
+.acoes-selecao-v135{
+  display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  margin:10px 0 16px;padding:12px 14px;background:#f5fbfa;
+  border:1px solid var(--linha);border-radius:16px;
+}
+.acoes-selecao-v135 button{margin:0}
+.total-cadastro-v135{margin-left:auto;font-weight:900;color:var(--verde-escuro);white-space:nowrap}
+.th-selecao-v135,.td-selecao-v135{width:42px;min-width:42px;text-align:center!important}
+.th-selecao-v135 input,.td-selecao-v135 input{width:18px;height:18px;margin:0;accent-color:var(--verde)}
+.th-data-v135,.td-data-v135{min-width:132px;width:132px;white-space:nowrap}
+.td-data-v135{font-size:12px;color:#4d6878}
+tr.selecionado-v135 td{background:#eefaf4!important}
+.col-selecao-v135{width:42px}
+.col-data-v135{width:132px}
+#ordemCadastroV135{min-width:190px}
+
+@media(max-width:900px){
+  .total-cadastro-v135{width:100%;margin-left:0}
+}
